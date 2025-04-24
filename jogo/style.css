@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.container-jogo{
+    width: 80%;
+    height: 500px;
+    border: 1px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/mapa.png);
+    background-size: contain;
+}
+
+.container-jogo img {
+    width: 100px;
+    height: 100px;
+  }
