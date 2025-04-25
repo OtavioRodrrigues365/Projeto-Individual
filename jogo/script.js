@@ -12,6 +12,8 @@ var intervaloFrente;
 var intervaloTras;
 
 
+
+
 const frente = () => {
   const img = document.getElementById('bonecoDayz');
   img.src = `./img/boneco${boneco}.png`;
@@ -35,6 +37,23 @@ const agachadoTras = () => {
 };
 
 
+const parado = () => {
+  const img = document.getElementById('bonecoDayz');
+  img.src = `./img/boneco1.png`;
+};
+
+
+const pulo = () => {
+  w = true;
+  bonecoDayz.classList.add('pulo');
+  const img = document.getElementById('bonecoDayz');
+  img.src = `./img/boneco1.png`;
+  setTimeout(() => {
+    bonecoDayz.classList.remove('pulo');
+    w = false;
+  }, 500);
+};
+
 const atualizarMovimento = () => {
   if (d) {
     posicao += 4;
@@ -48,6 +67,8 @@ const atualizarMovimento = () => {
     agachado();
     }else if(a){
       agachadoTras();
+    }else if(w){
+      parado
     }else{
       agachado();
     }
@@ -76,22 +97,15 @@ document.addEventListener('keydown', (e) => {
 
   if (e.key.toLowerCase() === 's' && !s) {
     s = true;
-  
-    if (d) {
-      agachado();
-    } else if (a) {
-      agachadoTras(); }
     }
 
+
+  if(e.key.toLocaleLowerCase() == 'w' && !w && !s){
+    parado();
+    
+  }
   if (e.key.toLowerCase() === 'w' && !w) {
-    w = true;
-    bonecoDayz.classList.add('jump');
-    const img = document.getElementById('bonecoDayz');
-    img.src = `./img/boneco1.png`;
-    setTimeout(() => {
-      bonecoDayz.classList.remove('jump');
-      w = false;
-    }, 500);
+   pulo();
   }
 });
 
