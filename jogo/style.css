@@ -14,9 +14,56 @@ body{
     align-items: center;
     background-image: url(./img/mapa.png);
     background-size: contain;
+    position: relative;
 }
 
-.container-jogo img {
+.bonecoDayz {
     width: 100px;
     height: 100px;
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+}
+
+
+.jump{
+    animation: jump 500ms ease-out;
   }
+
+@keyframes jump {
+    0%{
+        bottom: 100px;
+    }
+
+    40%{
+        bottom: 280px;
+    }
+
+    50%{
+        bottom: 280px;
+    }
+
+    60%{
+        bottom: 280px;
+    }
+
+    100%{
+        bottom: 100px;
+    }
+}
+
+
+.frente{
+    animation: frente 10s linear;
+}
+
+
+@keyframes frente{
+    from{
+        left: 0;
+    }
+
+    to{
+        left: 100%;
+    }
+}
