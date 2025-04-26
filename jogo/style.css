@@ -47,7 +47,58 @@ body{
 
 .nuvem{
     position: absolute;
-    
+}
+
+#n1{
+    width: 400px;
+    right: 550px;
+    bottom: 400px;
+    animation: n1 15s infinite linear;
+    animation-delay: 4s;
+    animation-fill-mode: backwards;
+}
+
+#n2{
+    width: 400px;
+    right: 30px;
+    animation: n2 15s infinite linear;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
+
+#n3{
+    width: 400px;
+    animation: n3 15s infinite linear;
+    animation-delay: 7s;
+    animation-fill-mode: backwards;
+
+}
+
+@keyframes n1{
+    from{
+        right: -950px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes n2{
+    from{
+        right: -950px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes n3{
+    from{
+        right: -950px;
+    }
+    to{
+        right: 100%;
+    }
 }
 
 @keyframes pulo {
