@@ -10,6 +10,8 @@ const totalFrames = 3;
 const teclasPressionadas = new Set();
 var intervaloFrente;
 var intervaloTras;
+var estaAgachado = false;
+var pode = false
 
 
 
@@ -29,19 +31,21 @@ const tras = () => {
 const agachado = () => {
   const img = document.getElementById('bonecoDayz');
   img.src = `./img/bonecoAgachado.png`;
+  estaAgachado = true;
 };
 
 const agachadoTras = () => {
   const img = document.getElementById('bonecoDayz');
   img.src = `./img/bonecoAgachado-t.png`;
+  estaAgachado = true;
 };
 
 
 const parado = () => {
   const img = document.getElementById('bonecoDayz');
   img.src = `./img/boneco1.png`;
+  estaAgachado = false;
 };
-
 
 const pulo = () => {
   w = true;
@@ -52,27 +56,28 @@ const pulo = () => {
     bonecoDayz.classList.remove('pulo');
     w = false;
   }, 500);
+
 };
 
 const atualizarMovimento = () => {
-  if (d) {
-    posicao += 4;
-    bonecoDayz.style.left = posicao + 'px';
-  }
-  if(a){posicao -= 4;
-  bonecoDayz.style.left = posicao + 'px';
-  }
+  if (pode == true){
   if(s){
     if(d){
     agachado();
     }else if(a){
       agachadoTras();
-    }else if(w){
-      parado
     }else{
       agachado();
     }
+  }else if (d) {
+    posicao += 4;
+    bonecoDayz.style.left = posicao + 'px';
   }
+  else if(a){posicao -= 4;
+  bonecoDayz.style.left = posicao + 'px';
+  }
+}
+
   requestAnimationFrame(atualizarMovimento);
 };
 
@@ -91,21 +96,20 @@ document.addEventListener('keydown', (e) => {
   if (e.key.toLowerCase() === 'a') {
     if (!a) {
       a = true;
-      intervaloTras = setInterval(tras, 100);
+      intervaloTras = setInterval(tras, 100); 
     }
   }
-
   if (e.key.toLowerCase() === 's' && !s) {
     s = true;
     }
 
 
-  if(e.key.toLocaleLowerCase() == 'w' && !w && !s){
-    parado();
-    
-  }
   if (e.key.toLowerCase() === 'w' && !w) {
-   pulo();
+    if(estaAgachado == true){
+      parado()
+    }else{
+      pulo();
+    }
   }
 });
 
@@ -126,3 +130,11 @@ document.addEventListener('keyup', (e) => {
   }
 
 });
+
+
+
+function jogar(){
+  pode = true;
+  document.getElementById('jogar').classList.remove('fundo-desfocado')
+  document.getElementById('btn-jogar').classList.add('remover-btn')
+}
