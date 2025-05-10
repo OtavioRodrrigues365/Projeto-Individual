@@ -1,0 +1,75 @@
+
+/*HEADER*/
+.header {
+    background-color: black;
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 570px 0px 10px;
+    
+}
+
+.fundo{
+    padding-bottom: 0px;
+    width: 130px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    list-style: none;
+    width: 300px;
+    
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 20px;
+    
+    
+}
+.navbar li:nth-child(1),
+.navbar li:nth-child(2),
+.navbar li:nth-child(3)
+{
+    padding: 0 30px;
+    word-spacing: 5px;
+    font-family: Days;
+}
+
+.navbar li:nth-child(4){
+    padding: 0 250px 0px 20px;
+    word-spacing: 5px;
+    font-family: Days;
+}
+
+.navbar li:nth-child(5),
+.navbar li:nth-child(6){
+    padding: 0 10px 0 0;
+    word-spacing: 5px;
+    font-family: UrbanJungle;
+}
+
+.navbar li:nth-child(7){
+    font-family: UrbanJungle;
+}
+
+ul {
+    display: flex;
+  }
