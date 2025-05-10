@@ -1,5 +1,6 @@
 
 const bonecoDayz = document.querySelector('.bonecoDayz');
+const plataforma = document.querySelector('.plataforma');
 var posicao = 0;
 var w = false;
 var d = false;
@@ -14,7 +15,10 @@ var estaAgachado = false;
 var pode = false
 
 
-
+//  const loop = setInterval(() => {
+//    console.log(plataforma.getBoundingClientRect());
+   
+//  },10000)
 
 const frente = () => {
   const img = document.getElementById('bonecoDayz');
@@ -60,23 +64,32 @@ const pulo = () => {
 };
 
 const atualizarMovimento = () => {
-  if (pode == true){
-  if(s){
-    if(d){
-    agachado();
-    }else if(a){
-      agachadoTras();
-    }else{
-      agachado();
+  if (pode == true) {
+    if (s) {
+      if (d) {
+        agachado();
+      } else if (a) {
+        agachadoTras();
+      } else {
+        agachado();
+      }
+    } else if (d) {
+      if (bonecoDayz.offsetLeft <= 1430) {
+        posicao += 4;
+        bonecoDayz.style.left = posicao + 'px';
+      } else if(bonecoDayz.offsetLeft <= 1430) {
+
+      }else{
+
+      }
     }
-  }else if (d) {
-    posicao += 4;
-    bonecoDayz.style.left = posicao + 'px';
+    else if (a) {
+      if (bonecoDayz.offsetLeft >= -30) {
+        posicao -= 4;
+        bonecoDayz.style.left = posicao + 'px';
+      } else { }
+    }
   }
-  else if(a){posicao -= 4;
-  bonecoDayz.style.left = posicao + 'px';
-  }
-}
 
   requestAnimationFrame(atualizarMovimento);
 };
@@ -96,18 +109,18 @@ document.addEventListener('keydown', (e) => {
   if (e.key.toLowerCase() === 'a') {
     if (!a) {
       a = true;
-      intervaloTras = setInterval(tras, 100); 
+      intervaloTras = setInterval(tras, 100);
     }
   }
   if (e.key.toLowerCase() === 's' && !s) {
     s = true;
-    }
+  }
 
 
   if (e.key.toLowerCase() === 'w' && !w) {
-    if(estaAgachado == true){
+    if (estaAgachado == true) {
       parado()
-    }else{
+    } else {
       pulo();
     }
   }
@@ -133,7 +146,7 @@ document.addEventListener('keyup', (e) => {
 
 
 
-function jogar(){
+function jogar() {
   pode = true;
   document.getElementById('jogar').classList.remove('fundo-desfocado')
   document.getElementById('btn-jogar').classList.add('remover-btn')

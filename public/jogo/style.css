@@ -18,7 +18,7 @@ body{
 }
 
 .container-mapa{
-    width: 80%;
+    width: 1500px;
     height: 500px;
     border: 1px black solid;
     display: flex;
@@ -37,6 +37,13 @@ body{
     position: relative;
     background-image: url(./img/chao.png);
     top: 177px;
+}
+
+.plataforma{
+    position: relative;
+    width: 300px;
+    margin-left: 600px;
+    z-index: 7
 }
 
 .bonecoDayz {
