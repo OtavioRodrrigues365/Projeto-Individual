@@ -14,12 +14,7 @@ var intervaloTras;
 var estaAgachado = false;
 var pode = false
 
-
-//  const loop = setInterval(() => {
-//    console.log(plataforma.getBoundingClientRect());
-   
-//  },10000)
-
+ 
 const frente = () => {
   const img = document.getElementById('bonecoDayz');
   img.src = `./img/boneco${boneco}.png`;
@@ -87,7 +82,9 @@ const atualizarMovimento = () => {
       if (bonecoDayz.offsetLeft >= -30) {
         posicao -= 4;
         bonecoDayz.style.left = posicao + 'px';
-      } else { }
+      } else {
+
+      }
     }
   }
 
@@ -121,7 +118,7 @@ document.addEventListener('keydown', (e) => {
     if (estaAgachado == true) {
       parado()
     } else {
-      pulo();
+      pulo()
     }
   }
 });
