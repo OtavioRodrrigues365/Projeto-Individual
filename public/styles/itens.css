@@ -1,0 +1,96 @@
+:root {
+    --verde-fundo: #152515;
+    --amarelo: #e3b062;
+}
+body{
+  background-color: var(--verde-fundo);
+}
+
+
+/*Todos carrosseis */
+swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+
+  .carrossel-1{
+  color: white;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: block;
+}
+
+.carrossel-2{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: block;
+}
+
+.carrossel-3{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: block;
+}
+
+.titulo-3{
+    font-size: 50px;
+    font-family: DayS;
+}
+
+p .nome-itens{
+    order: 1;
+    top: 10px;
+    z-index: 999;
+    position: fixed;
+}
+
+
+.cards-itens{
+  border: 1px black solid;
+  height: auto;
+  padding: 20px;
+}
+
+.item{
+  border: 1px black solid;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  
+}
+.nome-img{
+  border: 1px black solid;
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.nome-img img{
+  width: 45%;
+}
+
+.item .descricao{
+  border: 1px black solid;
+  width: 50%;
+}

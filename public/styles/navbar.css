@@ -1,4 +1,18 @@
 
+/* importação das fontes */
+@font-face {
+    font-family: Days;
+    src: url(../assets/fonte/28DaysLater.ttf);
+ }
+ @font-face {
+    font-family: UrbanJungle;
+    src: url(../assets/fonte/UrbanJungleDEMO.otf);
+ }
+ 
+body {
+    margin: 0;
+}
+
 /*HEADER*/
 .header {
     background-color: black;
