@@ -1,274 +1,290 @@
-const lista = [
-    {
-        categoria: "Animais",
-        nome: "Boi marrom",
-        imagem: "./assets/imgs/animais/boiB.webp",
-        descricao: "15-20 x Bife de Vaca.1 x Pele de vaca.3-5 x Tripas.2-3 x Gordura.3-4 x Ossos",
-        localizacao: ""
-      },
-      {
-        categoria: "Animais",
-        nome: "Raposa",
-        imagem: "./assets/imgs/animais/raposa.webp",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Animais",
-        nome: "Carneiro",
-        imagem: "./assets/imgs/animais/carneiro.webp",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Animais",
-        nome: "Cervo",
-        imagem: "./assets/imgs/animais/cervo.webp",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Animais",
-        nome: "Galinha",
-        imagem: "./assets/imgs/animais/galinha.webp",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Animais",
-        nome: "Javali",
-        imagem: "./assets/imgs/animais/javali.webp",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Animais",
-        nome: "Lebre",
-        imagem: "./assets/imgs/animais/lebre.webp",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Animais",
-        nome: "Lobo Cinza",
-        imagem: "./assets/imgs/animais/loboCinza.webp",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Animais",
-        nome: "Ovelha",
-        imagem: "./assets/imgs/animais/ovelha.webp",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Bastão de Baseball",
-        imagem: "./assets/imgs/armas/acessorios/tacoNormal.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Chave de Tubo",
-        imagem: "./assets/imgs/armas/acessorios/chaveDeTubo.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Enxada de Agricultura",
-        imagem: "./assets/imgs/armas/acessorios/enxada.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Cano",
-        imagem: "./assets/imgs/armas/acessorios/cano.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Pá",
-        imagem: "./assets/imgs/armas/acessorios/pa.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Soqueira",
-        imagem: "./assets/imgs/armas/acessorios/socoInglês.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Vassoura",
-        imagem: "./assets/imgs/armas/acessorios/vassoura.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Pé de cabra",
-        imagem: "./assets/imgs/armas/acessorios/peDeCabra.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Marreta",
-        imagem: "./assets/imgs/armas/acessorios/marreta.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Martelo",
-        imagem: "./assets/imgs/armas/acessorios/martelo.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Maça",
-        imagem: "./assets/imgs/armas/acessorios/maça.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Acessórios",
-        nome: "Chave de roda",
-        imagem: "./assets/imgs/armas/acessorios/chaveRoda.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Baioneta de Ak",
-        imagem: "./assets/imgs/armas/Facas/baioneta-ak.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Baioneta de M4",
-        imagem: "./assets/imgs/armas/Facas/baioneta-m4.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Baioneta de mosin",
-        imagem: "./assets/imgs/armas/Facas/baioneta-mosin.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Chave de fenda",
-        imagem: "./assets/imgs/armas/Facas/baioneta-mosin.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Cutelo",
-        imagem: "./assets/imgs/armas/Facas/cutelo.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Espada",
-        imagem: "./assets/imgs/armas/Facas/espada.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Faca de osso",
-        imagem: "./assets/imgs/armas/Facas/facaOsso.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Faca de bife",
-        imagem: "./assets/imgs/armas/Facas/facaBife.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "faca de combate",
-        imagem: "./assets/imgs/armas/Facas/facaCombate.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Faca de cozinha",
-        imagem: "./assets/imgs/armas/Facas/facaCozinha.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Faca de pedra",
-        imagem: "./assets/imgs/armas/Facas/facaPedra.png",
-        descricao: "",
-        localizacao: ""
-      },
-      {
-        categoria: "Facas",
-        nome: "Facão oriental",
-        imagem: "./assets/imgs/armas/Facas/facãoOriental.png",
-        descricao: "",
-        localizacao: ""
-      }
-    ];
-    var chave = sessionStorage.getItem("chave")
-    var mensagem = ``;
-    mensagem = `<span class="titulo-3">${chave}</span>
-    <swiper-container class="mySwiper" id="mySwiper">
-    `;
-    for(var i = 0; i < lista.length; i++){
-        objetoAtual = lista[i];  
-      if(objetoAtual.categoria == chave){
-        mensagem += `
-        <swiper-slide>
-        <span>Ola</span>
-          <img src="${objetoAtual.imagem}" />
-              <p class="nome-itens">${objetoAtual.nome}</p>
-          </swiper-slide>`;
+var chave = sessionStorage.getItem("chave")
 
-        // var descricaoSeparada = lista[i].descricao.split(".")
-        // console.log(descricaoSeparada);
-        }else{
 
-        }
-      }
-    carrossel.innerHTML += `${mensagem}</swiper-container>`
-    const swiper = document.getElementById('mySwiper');
+// Exibir Carrossel Simples
+function exibirCarrossel() {
+  var itensCarrossel = ``;
+  itensCarrossel = `<span class="titulo-3">${chave}</span>
+<swiper-container class="mySwiper" id="mySwiper">
+`;
+  for (var i = 0; i < lista.length; i++) {
+    var objetoAtual = lista[i];
+    if (objetoAtual.categoria == chave) {
+      itensCarrossel += `
+    <swiper-slide>
+    <span>${objetoAtual.categoria}</span>
+      <img src="${objetoAtual.imagem}" />
+          <p class="nome-itens">${objetoAtual.nome}</p>
+      </swiper-slide>`;
 
-    Object.assign(swiper, {
-      
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 6,
-      navigation: 'true',
-      loop: true,
-      initialSlide: 4,
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      }
-    });
+
+      // var descricaoSeparada = lista[i].drops.split(".")
+      // console.log(descricaoSeparada);
+    } else {
+
+    }
+  }
+
+  carrossel.innerHTML += `${itensCarrossel}</swiper-container>`;
+};
+
+
+// Exibir Carrossel Composto
+function exibirCarrosselComposto() {
+  var chaveSeparada = chave.split(".")
+  var itensCarrossel = ``;
+  itensCarrossel = `<span class="titulo-3">${chaveSeparada[0]} e ${chaveSeparada[1]}</span>
+  <swiper-container class="mySwiper" id="mySwiper">
+  `;
+  for (var i = 0; i < lista.length; i++) {
+    var objetoAtual = lista[i];
+    if (objetoAtual.categoria == chaveSeparada[0] || objetoAtual.categoria == chaveSeparada[1]) {
+      itensCarrossel += `
+      <swiper-slide>
+      <span>${objetoAtual.categoria}</span>
+        <img src="${objetoAtual.imagem}" />
+            <p class="nome-itens">${objetoAtual.nome}</p>
+        </swiper-slide>`;
+
+
+      // var descricaoSeparada = lista[i].drops.split(".")
+      // console.log(descricaoSeparada);
+    } else {
+
+    }
+  }
+
+  carrossel.innerHTML += `${itensCarrossel}</swiper-container>`;
+}
+
+
+if (chave == `Animais`) {
+  exibirCarrossel();
+  exibirDrops();
+} else if (chave == `Acessórios`) {
+  exibirCarrossel();
+  exibirUsos();
+} else if (chave == `Facas`) {
+  exibirCarrossel();
+  exibirUsos();
+} else if (chave == `Explosivos`) {
+  exibirCarrossel();
+  exibirSub();
+} else if (chave.includes(`Fuzis de Assalto`)) {
+  exibirCarrosselComposto();
+  console.log(chave);
+} else if (chave.includes(`Rifles de ferrolho`)) {
+  exibirCarrosselComposto();
+} else if (chave.includes(`Espingardas`)) {
+  exibirCarrosselComposto();
+}else if (chave.includes(`Pistolas`)) {
+  exibirCarrosselComposto();
+}
+
+
+
+
+//Funções
+
+// Com Drops e Localização
+function exibirDrops() {
+  var itensCards = ``;
+  for (var i = 0; i < lista.length; i++) {
+    var itemAtual = lista[i];
+    if (itemAtual.categoria == chave) {
+
+      var dropsSeparadas = lista[i].drops.split(".")
+      var localizacaoSeparada = lista[i].localizacao.split(",");
+      console.log(localizacaoSeparada[0]);
+      itensCards += `<div class="item">
+      <div class="nome-img">
+        <img src="${itemAtual.imagem}" alt="Imagem item">
+        <span>${itemAtual.nome}</span>
+        <div class="drops">
+          <span>Drops</span>
+          <table>
+            <tbody>
+              <tr>
+                <th>${dropsSeparadas[0]}</th>
+                <th>${dropsSeparadas[1]}</th>
+              </tr>
+              <tr>
+                <th>${dropsSeparadas[2]}</th>
+                <th>${dropsSeparadas[3]}</th>
+              </tr>
+              <tr>
+                <th>${dropsSeparadas[4]}</th>
+                <th>${dropsSeparadas[5]}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="descricao">
+        <h1>Descrição</h1>
+        <p>${itemAtual.descricao}</p>
+        <p></p>
+        <h1>Características</h1>
+        <h4>Localização</h4>
+        <ol>`;
+      for (var j = 0; j < localizacaoSeparada.length; j++) {
+        itensCards += `
+          <li>${localizacaoSeparada[j]}</li>
+          `};
+      itensCards += `</ol>
+        <h4>Raridade</h4>
+        <ul>
+          <li>${itemAtual.raridade}</li>
+        </ul>
+        <h4>Variantes</h4>
+        <ul>
+          <li>${itemAtual.variante}</li>
+        </ul>
+      </div>
+    </div>`;
+    }
+  };
+  cards.innerHTML += `${itensCards}`;
+};
+
+
+//Utilizados e Localização
+function exibirUsos() {
+  var itensCards = ``;
+  for (var i = 0; i < lista.length; i++) {
+    var itemAtual = lista[i];
+    if (itemAtual.categoria == chave) {
+
+      var UsosSeparadas = lista[i].usos.split(".")
+      var localizacaoSeparada = lista[i].localizacao.split(",");
+      console.log(UsosSeparadas);
+      itensCards += `<div class="item">
+      <div class="nome-img">
+        <img src="${itemAtual.imagem}" alt="Imagem item">
+        <span>${itemAtual.nome}</span>
+        <div class="utilizado">
+          <table>
+            <tbody>
+              <tr>
+                <th>Ação</th>
+                <th>Detalhes</th>
+              </tr>`;
+      for (var j = 2; j < UsosSeparadas.length; j++) {
+
+        if (j % 2 == 0) {
+          itensCards += `<tr>
+                <th>${UsosSeparadas[j]}</th>`
+        } else {
+          itensCards += `
+                <th>${UsosSeparadas[j]}</th>
+              </tr>
+              `}
+      };
+      itensCards
+        += `
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="descricao">
+        <h1>Descrição</h1>
+        <p>${itemAtual.descricao}</p>
+        <p></p>
+        <h1>Características</h1>
+        <h4>Localização</h4>
+        <ol>`;
+      for (var y = 0; y < localizacaoSeparada.length; y++) {
+        itensCards += `
+            <li>${localizacaoSeparada[y]}</li>
+            `};
+      itensCards += `</ol>
+        <h4>Raridade</h4>
+        <ul>
+          <li>${itemAtual.raridade}</li>
+        </ul>
+        <h4>Variantes</h4>
+        <ol>
+          <li>${itemAtual.variante}</li>
+        </ol>
+      </div>
+    </div>`;
+    }
+  };
+  cards.innerHTML += `${itensCards}`;
+};
+
+
+// Armadilhas e Granadas
+function exibirSub() {
+  var itensCards = ``;
+  for (var i = 0; i < lista.length; i++) {
+    var itemAtual = lista[i];
+    if (itemAtual.categoria == chave) {
+
+      var varianteSeparada = lista[i].variante.split(",");
+      var localizacaoSeparada = lista[i].localizacao.split(",");
+      itensCards += `<div class="item">
+      <div class="nome-img">
+        <div class="subcategoria">
+          <span class="sub">Subcategoria:</span>
+          <p>${itemAtual.subcategoria}</p>
+        </div>
+        <img src="${itemAtual.imagem}" alt="Imagem item">
+        <span>${itemAtual.nome}</span>
+      </div>
+      <div class="descricao">
+        <h1>Descrição</h1>
+        <p>${itemAtual.descricao}</p>
+        <p></p>
+        <h1>Características</h1>
+        <h4>Tipo</h4>
+        <ul>
+          <li>${itemAtual.tipo}</li>
+        </ul>
+        <h4>Localização</h4>
+        <ol>`; for (var j = 0; j < localizacaoSeparada.length; j++) {
+        itensCards += `
+            <li>${localizacaoSeparada[j]}</li>
+            `};
+      itensCards += `</ol>
+        <h4>Raridade</h4>
+        <ul>
+          <li>${itemAtual.raridade}</li>
+        </ul>
+        <h4>Variantes</h4>
+        <ol>`; for (var y = 0; y < varianteSeparada.length; y++) {
+        itensCards += `
+            <li>${varianteSeparada[y]}</li>
+            `};
+      itensCards += `</ol>
+      </div>
+    </div>`;
+    }
+  };
+  cards.innerHTML += `${itensCards}`;
+};
+
+
+
+
+
+//Configuração Carrossel
+const swiper = document.getElementById('mySwiper');
+
+Object.assign(swiper, {
+
+  effect: 'coverflow',
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: 6,
+  navigation: 'true',
+  loop: true,
+  initialSlide: 4,
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+  }
+});

@@ -65,32 +65,150 @@ p .nome-itens{
 
 
 .cards-itens{
-  border: 1px black solid;
   height: auto;
   padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .item{
-  border: 1px black solid;
-  width: 100%;
-  height: 600px;
   display: flex;
-  justify-content: center;
-  
+  justify-content: space-between;
+  background-color: #587054;
+  border-radius: 10px;
+  width: 40%;
+  margin-top: 40px;
+ 
 }
+
 .nome-img{
-  border: 1px black solid;
   width: 50%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
+}
+.item .descricao{
+  border-left: 1px rgb(255, 255, 255) solid;
+  padding: 0px 20px;
+  width: 50%;
+  font-family: sans-serif;
+  color: white;
+}
+.item .descricao h1{
+  color: black;
+}
+
+.item .descricao h4{
+  color: rgb(240, 37, 37);
 }
 
 .nome-img img{
-  width: 45%;
+  width: 70%;
+  background-color: rgb(37, 37, 37);
+  border-radius: 3px;
 }
 
-.item .descricao{
-  border: 1px black solid;
+.nome-img span{
+  font-size: 37px;
+  text-align: center;
+}
+
+.utilizado{
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  
+}
+
+.nome-img .utilizado{
+  display: flex;
+  width: 100%;
+}
+
+
+
+/* Acessórios */
+.utilizado table{
+  color: white;
+  width: 80%;
+}
+
+.utilizado tbody tr:nth-child(1){
+  background-color: #4f524c;
+  font-size: 30px;
+}
+
+.utilizado tbody tr{
+  display: flex;
+  background-color: #1c2118;
+  font-size: 14px;
+  
+}
+
+.utilizado tbody th{
+  border: 1px #cccccc solid;
   width: 50%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* Animais */
+.drops{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0px 0px 0px;
+  font-family: sans-serif;
+  font-weight: bolder;
+  color: rgb(99, 19, 19);
+}
+.drops span{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.drops table{
+  color: white;
+  width: 100%;
+}
+
+
+.drops tbody tr{
+  display: flex;
+  background-color: #1c2118;
+  font-size: 14px;
+  
+}
+
+.drops tbody th{
+  border: 1px #cccccc solid;
+  width: 50%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Armadilhas e Granadas */
+.subcategoria{
+  text-align: center;
+  padding: 0px 0px 30px 0px;
+}
+
+.sub{
+  font-size: 14px;
+  font-family: DayS;
+
+}
+
+.subcategoria p{
+  font-size: 30px;
+  margin: 0;
 }

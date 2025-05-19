@@ -13,10 +13,9 @@ USE zonaDayz;
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
-	email VARCHAR(50),
+	email VARCHAR(80) UNIQUE,
 	senha VARCHAR(50)
 );
-
 
 
 select * from usuario;
