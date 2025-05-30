@@ -2,19 +2,25 @@
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
+    var email2 = localStorage.EMAIL_USUARIO;
+    var nome2 = localStorage.NOME_USUARIO;
+    
 
     var b_usuario = document.getElementById("b_usuario");
 
-    if (email != null && nome != null) {
+    if ((email != null && nome != null) || (email2 != null && nome2 != null)) {
         console.log("sessão válida")
     } else {
         window.location = "../login.html";
     }
 }
 
+
+
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../login.html";
+    localStorage.clear();
+    window.location = "../index.html";
 }
 
 // carregamento (loading)

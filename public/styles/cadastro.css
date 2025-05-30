@@ -1,0 +1,67 @@
+
+:root {
+    --verde-fundo: #152515;
+    --amarelo: #e3b062;
+    --verde-claro: #498b49;
+}
+
+body {
+    margin: 0;
+}
+
+
+
+.card-cadastro{
+    border: 1px #94b053 solid;
+    border-radius: 10px;
+    width: 28%;
+    box-shadow: 0px 128px 240px 0px #00000040;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.4);
+    background: transparent;
+}
+
+.card-cadastro .campo input{
+    border-radius: 10px;
+    width: 95%;
+    height: 50%;
+    color: black;
+    background-color: white;
+}
+
+.card-cadastro .campo input::placeholder{
+    color: black;
+}
+
+.card-cadastro h2{
+    text-align: center;
+    font-size: 50px;
+}
+
+.card-cadastro .formulario button{
+    margin-bottom: 50px;
+    font-family: "Poppins";
+}
+
+
+.alerta_erro{
+display: flex;
+justify-content: flex-end;
+}
+
+.card_erro {
+    display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: red 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}

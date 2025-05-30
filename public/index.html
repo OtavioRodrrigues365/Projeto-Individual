@@ -8,7 +8,7 @@
 
   <title>ZonaDayZ</title>
 
-  <link rel="stylesheet" href="styles/navbar.css">
+  
   <link rel="stylesheet" href="styles/index.css">
   <link rel="icon" href="assets/icon/favicon1.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
   </div>
   <div class="header" id="header">
     <div class="container">
-      <img class="fundo" src="./assets/imgs/LogoFinal.png" />
+      <img class="fundo" src="./assets/imgs/LogoFinal.png"/>
       <ul class="navbar">
 
         <li class="agora">
@@ -50,15 +50,16 @@
           <a href="./jogo/jogo.html">Mini DayZ</a>
         </li>
         <li>
-          <a href="#">Quiz</a>
+          <a href="./quiz/quiz.html">Quiz</a>
         </li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="cadastro.html">Cadastro</a>
-        </li>
+          <li id="sessao">
+            <a href="login.html">Login</a>
+          </li>
+          <li id="sessao1">|</li>
+          <li id="sessao2">
+            <a href="cadastro.html">Cadastro</a>
+          </li>
+        <div id="teste"></div>
       </ul>
 
     </div>
@@ -127,36 +128,36 @@
         
           <div class="card3">  
             <div class="card-itens">
-            <img src="./assets/imgs/armas/Granadas/granadaFrag-2.png" alt="">
+            <img src="./assets/imgs/CardGranadas.png" alt="">
             <p>Potentes e imprevisíveis, os explosivos são ideais para emboscadas e invasões. Granadas, armadilhas e mais — use com estratégia e cause o caos certo na hora certa.   </p>
-            <button value="Explosivos" onclick="enviar(this)">Saiba Mais</button>
+            <button value="Explosivos.Lançador" onclick="enviar(this)">Saiba Mais</button>
           </div>
           <div class="card-itens">
-            <img src="./assets/imgs/armas/FuzisAssalto/ak74.png" alt="">
+            <img src="./assets/imgs/CardFuzis.png" alt="">
             <p>Melhore sua experiência com ferramentas essenciais! Pá, martelo, marreta, chave de fenda e soqueiras — cada item pode ser a chave para sua sobrevivência no mundo hostil de DayZ.</p>
             <button value="Fuzis de Assalto.Rifles de batalha" onclick="enviar(this)">Saiba Mais</button>
           </div>
           <div class="card-itens">
-              <img src="./assets/imgs/armas/RiflesFerrolho/cr527.png" alt="">
+              <img src="./assets/imgs/cardFerrolho1.png" alt="">
               <p>Compactas e letais, as facas são indispensáveis! Use para caça, defesa ou tarefas do dia a dia — um verdadeiro coringa para todo sobrevivente em DayZ.</p>
               <button value="Rifles de ferrolho.Rifles de ruptura" onclick="enviar(this)">Saiba Mais</button>
             </div>
           </div>
           <div class="card3">  
             <div class="card-itens">
-            <img src="./assets/imgs/armas/Espingardas/bk12.png" alt="">
+            <img src="./assets/imgs/cardEspingarda.png" alt="">
             <p>Potentes e imprevisíveis, os explosivos são ideais para emboscadas e invasões. Granadas, armadilhas e mais — use com estratégia e cause o caos certo na hora certa.   </p>
             <button value="Espingardas.Submetralhadoras" onclick="enviar(this)">Saiba Mais</button>
           </div>
           <div class="card-itens">
-            <img src="./assets/imgs/armas/Pistolas/chifreLongo.png" alt="">
+            <img src="./assets/imgs/cardPistola.png" alt="">
             <p>Melhore sua experiência com ferramentas essenciais! Pá, martelo, marreta, chave de fenda e soqueiras — cada item pode ser a chave para sua sobrevivência no mundo hostil de DayZ.</p>
             <button value="Pistolas.Tiro com Arco" onclick="enviar(this)">Saiba Mais</button>
           </div>
           <div class="card-itens">
-              <img src="./assets/imgs/armas/RiflesFerrolho/cr527.png" alt="">
-              <p>Compactas e letais, as facas são indispensáveis! Use para caça, defesa ou tarefas do dia a dia — um verdadeiro coringa para todo sobrevivente em DayZ.</p>
-              <button value="Rifles de ferrolho.Rifles de ruptura" onclick="enviar(this)">Saiba Mais</button>
+              <img src="./assets/imgs/armas/RiflesAtirador/svd.png" alt="">
+              <p>Seja no combate de média distância ou na precisão de um disparo certeiro, essas armas garantem vantagem em qualquer situação. Escolha seu estilo e sobreviva com estratégia no mundo brutal de DayZ.</p>
+              <button value="Rifles de Atirador.Rifles semiautomáticos" onclick="enviar(this)">Saiba Mais</button>
             </div>
           </div>
 </div>
@@ -170,3 +171,23 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     
 </html>
+
+<script>
+var email2 = localStorage.EMAIL_USUARIO;
+var nome2 = localStorage.NOME_USUARIO;
+var email = sessionStorage.EMAIL_USUARIO;
+var nome = sessionStorage.NOME_USUARIO;
+
+if (email2 != null && nome2 != null || email != null && nome != null) {
+        console.log("sessão válida")
+        var nome = localStorage.NOME_USUARIO
+        if(nome == null){
+        var nome = sessionStorage.NOME_USUARIO
+        }
+        document.getElementById("sessao").style.display = 'none';
+        document.getElementById("sessao1").style.display = 'none';
+        document.getElementById("sessao2").style.display = 'none';
+        var imagem = `https://cdn-icons-png.flaticon.com/512/3135/3135715.png`;
+        teste.innerHTML = `<li><div class="perfil"><div class="img-perfil"><img src="${imagem}"/></div><a href="dashboard/dashboard.html">${nome}</a></div></li>`;
+    }
+</script>

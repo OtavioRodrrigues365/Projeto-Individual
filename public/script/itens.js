@@ -28,7 +28,7 @@ function exibirCarrossel() {
   carrossel.innerHTML += `${itensCarrossel}</swiper-container>`;
 };
 
-
+var chaveSeparada = chave.split(".")
 // Exibir Carrossel Composto
 function exibirCarrosselComposto() {
   var chaveSeparada = chave.split(".")
@@ -45,10 +45,6 @@ function exibirCarrosselComposto() {
         <img src="${objetoAtual.imagem}" />
             <p class="nome-itens">${objetoAtual.nome}</p>
         </swiper-slide>`;
-
-
-      // var descricaoSeparada = lista[i].drops.split(".")
-      // console.log(descricaoSeparada);
     } else {
 
     }
@@ -67,19 +63,30 @@ if (chave == `Animais`) {
 } else if (chave == `Facas`) {
   exibirCarrossel();
   exibirUsos();
-} else if (chave == `Explosivos`) {
-  exibirCarrossel();
+} else if (chave.includes(`Explosivos`)) {
+  exibirCarrosselComposto();
   exibirSub();
+  if(chaveSeparada[1] == `Lançador`){
+    exibirCarregadoresSimples();
+  }
 } else if (chave.includes(`Fuzis de Assalto`)) {
   exibirCarrosselComposto();
+  exibirCarregadores();
   console.log(chave);
 } else if (chave.includes(`Rifles de ferrolho`)) {
   exibirCarrosselComposto();
+  exibirCarregadores();
 } else if (chave.includes(`Espingardas`)) {
   exibirCarrosselComposto();
+  exibirCarregadores();
 }else if (chave.includes(`Pistolas`)) {
   exibirCarrosselComposto();
+  exibirCarregadores();
+}else if (chave.includes(`Rifles de Atirador`)) {
+  exibirCarrosselComposto();
+  exibirCarregadores();
 }
+
 
 
 
@@ -148,7 +155,141 @@ function exibirDrops() {
 };
 
 
-//Utilizados e Localização
+//Munição e carregadores
+function exibirCarregadores() {
+  var itensCards = ``;
+  var chaveSeparada = chave.split(".")
+  for (var i = 0; i < lista.length; i++) {
+    var itemAtual = lista[i];
+    if (itemAtual.categoria == chaveSeparada[0] || itemAtual.categoria == chaveSeparada[1]) {
+      
+      var varianteSeparada = lista[i].variante.split(",")
+      var municaoSeparada = lista[i].municao.split("?");
+      var carregadorSeparado = lista[i].carregador.split(",")
+      var localizacaoSeparada = lista[i].localizacao.split(",");
+      console.log(municaoSeparada);
+      itensCards += `<div class="item">
+      <div class="nome-img">
+        <img src="${itemAtual.imagem}" alt="Imagem item">
+        <span>${itemAtual.nome}</span>
+        <div class="carregadores">
+        <div class="municao">
+          <div>Munição</div>`;
+          for (var j = 0; j < municaoSeparada.length; j++) {
+          itensCards += `
+          <div>${municaoSeparada[j]}</div>`;
+        };
+          itensCards +=`
+        </div>
+        <div class="carregador">
+          <div>Carregadores</div>`;
+          for (var l = 0; l < carregadorSeparado.length; l++){
+            itensCards += `
+            <div>${carregadorSeparado[l]}</div>
+            `};
+            itensCards +=`
+        </div>
+        </div>
+        </div>
+        <div class="descricao">
+        <h1>Descrição</h1>
+        <p>${itemAtual.descricao}</p>
+        <p></p>
+        <h1>Características</h1>
+        <h4>Localização</h4>
+        <ol>`;
+        for (var y = 0; y < localizacaoSeparada.length; y++) {
+          itensCards += `
+          <li>${localizacaoSeparada[y]}</li>
+          `};
+          itensCards += `</ol>
+          <h4>Raridade</h4>
+          <ul>
+          <li>${itemAtual.raridade}</li>
+          </ul>
+          <h4>Variantes</h4>
+          <ol>
+          `; for (var y = 0; y < varianteSeparada.length; y++) {
+        itensCards += `
+            <li>${varianteSeparada[y]}</li>
+            `};
+      itensCards += `
+          </ol>
+          </div>
+          </div>`;
+        }
+      };
+      cards.innerHTML += `${itensCards}`;
+    };
+
+function exibirCarregadoresSimples() {
+  var itensCards = ``;
+  var chaveSeparada = chave.split(".")
+  for (var i = 0; i < lista.length; i++) {
+    var itemAtual = lista[i];
+    if (itemAtual.categoria == chaveSeparada[1]) {
+      
+      var varianteSeparada = lista[i].variante.split(",")
+      var municaoSeparada = lista[i].municao.split("?");
+      var carregadorSeparado = lista[i].carregador.split(",")
+      var localizacaoSeparada = lista[i].localizacao.split(",");
+      console.log(municaoSeparada);
+      itensCards += `<div class="item">
+      <div class="nome-img">
+        <img src="${itemAtual.imagem}" alt="Imagem item">
+        <span>${itemAtual.nome}</span>
+        <div class="carregadores">
+        <div class="municao">
+          <div>Munição</div>`;
+          for (var j = 0; j < municaoSeparada.length; j++) {
+          itensCards += `
+          <div>${municaoSeparada[j]}</div>`;
+        };
+          itensCards +=`
+        </div>
+        <div class="carregador">
+          <div>Carregadores</div>`;
+          for (var k = 0; k < carregadorSeparado.length; k++){
+            itensCards += `
+            <div>${carregadorSeparado[k]}</div>
+            `};
+            itensCards +=`
+        </div>
+        </div>
+        </div>
+        <div class="descricao">
+        <h1>Descrição</h1>
+        <p>${itemAtual.descricao}</p>
+        <p></p>
+        <h1>Características</h1>
+        <h4>Localização</h4>
+        <ol>`;
+        for (var l = 0; l < localizacaoSeparada.length; l++) {
+          itensCards += `
+          <li>${localizacaoSeparada[l]}</li>
+          `};
+          itensCards += `</ol>
+          <h4>Raridade</h4>
+          <ul>
+          <li>${itemAtual.raridade}</li>
+          </ul>
+          <h4>Variantes</h4>
+          <ol>
+          `; for (var m = 0; m < varianteSeparada.length; m++) {
+        itensCards += `
+            <li>${varianteSeparada[m]}</li>
+            `};
+      itensCards += `
+          </ol>
+          </div>
+          </div>`;
+        }
+      };
+      cards.innerHTML += `${itensCards}`;
+    };
+  
+    
+    //Utilizados e Localização
 function exibirUsos() {
   var itensCards = ``;
   for (var i = 0; i < lista.length; i++) {
@@ -157,7 +298,6 @@ function exibirUsos() {
 
       var UsosSeparadas = lista[i].usos.split(".")
       var localizacaoSeparada = lista[i].localizacao.split(",");
-      console.log(UsosSeparadas);
       itensCards += `<div class="item">
       <div class="nome-img">
         <img src="${itemAtual.imagem}" alt="Imagem item">
@@ -193,9 +333,9 @@ function exibirUsos() {
         <h1>Características</h1>
         <h4>Localização</h4>
         <ol>`;
-      for (var y = 0; y < localizacaoSeparada.length; y++) {
+      for (var k = 0; k < localizacaoSeparada.length; k++) {
         itensCards += `
-            <li>${localizacaoSeparada[y]}</li>
+            <li>${localizacaoSeparada[k]}</li>
             `};
       itensCards += `</ol>
         <h4>Raridade</h4>
@@ -213,13 +353,12 @@ function exibirUsos() {
   cards.innerHTML += `${itensCards}`;
 };
 
-
 // Armadilhas e Granadas
 function exibirSub() {
   var itensCards = ``;
   for (var i = 0; i < lista.length; i++) {
     var itemAtual = lista[i];
-    if (itemAtual.categoria == chave) {
+    if (chaveSeparada[0].includes(itemAtual.categoria)) {
 
       var varianteSeparada = lista[i].variante.split(",");
       var localizacaoSeparada = lista[i].localizacao.split(",");
@@ -252,9 +391,9 @@ function exibirSub() {
           <li>${itemAtual.raridade}</li>
         </ul>
         <h4>Variantes</h4>
-        <ol>`; for (var y = 0; y < varianteSeparada.length; y++) {
+        <ol>`; for (var k = 0; k < varianteSeparada.length; k++) {
         itensCards += `
-            <li>${varianteSeparada[y]}</li>
+            <li>${varianteSeparada[k]}</li>
             `};
       itensCards += `</ol>
       </div>
@@ -279,7 +418,7 @@ Object.assign(swiper, {
   slidesPerView: 6,
   navigation: 'true',
   loop: true,
-  initialSlide: 4,
+  initialSlide: 2,
   coverflowEffect: {
     rotate: 50,
     stretch: 0,

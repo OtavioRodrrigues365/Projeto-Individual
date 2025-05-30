@@ -11,7 +11,7 @@ body{
 swiper-container {
     width: 100%;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 50px; 
   }
 
   swiper-slide {
@@ -20,7 +20,6 @@ swiper-container {
     width: 300px;
     height: 300px;
     display: flex;
-    align-items: center;
     flex-direction: column;
   }
 
@@ -28,6 +27,7 @@ swiper-container {
     display: block;
     width: 100%;
   }
+
 
   .carrossel-1{
   color: white;
@@ -59,7 +59,7 @@ swiper-container {
 p .nome-itens{
     order: 1;
     top: 10px;
-    z-index: 999;
+    z-index: 99;
     position: fixed;
 }
 
@@ -211,4 +211,57 @@ p .nome-itens{
 .subcategoria p{
   font-size: 30px;
   margin: 0;
+}
+
+
+/* Carregadores e Munição */
+
+.carregadores{
+  display: flex;
+  width: auto;
+  font-size: 13px;
+}
+
+
+.carregadores .municao div:nth-child(1){
+  background-color: #4f524c;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  border: 1px white solid;
+}
+
+.carregadores .municao div{
+  display: flex;
+  align-items: center;
+  height: 20px;
+  background-color: #1c2118;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border: 1px white solid;
+  border-collapse: collapse;
+}
+
+.carregadores .carregador div:nth-child(1){
+  background-color: #4f524c;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  border-left: 0;
+  border-top: 1px white solid;
+  border-bottom: 1px white solid;
+  border-right: 1px white solid;
+}
+
+.carregadores .carregador div{
+  display: flex;
+  align-items: center;
+  height: 20px;
+  background-color: #1c2118;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border: 1px white solid;
+  border-collapse: collapse;
 }

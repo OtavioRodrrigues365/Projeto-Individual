@@ -21,11 +21,6 @@
 <body>
 
     <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
         <div class="container">
             <div class="card card-login">
                 <div class="imagem"><img src="" alt="Imagem animada"></div>
@@ -38,7 +33,7 @@
                         <span>Senha:</span>
                         <input id="senha_input" type="password" placeholder="******">
                     </div>
-                    <div class="lembrar"><span><input type="checkbox"> manter conectado</span> <a href="">esqueceu a senha ?</a></div>
+                    <div class="lembrar"><span><input type="checkbox" id="checkLogin"> manter conectado</span> <a href="">esqueceu a senha ?</a></div>
                     <button class="botao" onclick="entrar()">Entrar</button>
                     <div class="cadastro"><p>ainda não tem sua conta?</p><a href="cadastro.html"> cadastre-se</a></div>
                 </div>
@@ -46,10 +41,14 @@
                 <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif">
                 </div>
-
                 <div id="div_erros_login"></div>
             </div>
         </div>
+        <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+        </div>
+    </div>
     </div>
 
 
@@ -62,13 +61,12 @@
 
     function entrar() {
         aguardar();
-
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Por favor, preencha todos os campos obrigatórios.";
             finalizarAguardar();
             return false;
         }
@@ -99,11 +97,20 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    var check = document.getElementById('checkLogin');
+                        if(check.checked){
+                    localStorage.EMAIL_USUARIO = json.email;
+                    localStorage.NOME_USUARIO = json.nome;
+                    localStorage.ID_USUARIO = json.idUsuario;
+                        }else{
+                            }
                     
 
                     setTimeout(function () {
-                        window.location = "./index.html";
+                        
+                        window.location = "./dashboard/dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

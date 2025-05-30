@@ -1,6 +1,7 @@
 const navbar = document.getElementById('header');
   const pagina2 = document.getElementById('2');
-  
+
+
 
   window.addEventListener('scroll', () => {
     const pagina2Top = pagina2.getBoundingClientRect().top;

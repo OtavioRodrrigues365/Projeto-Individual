@@ -13,7 +13,7 @@ const lista = [
         categoria: "Animais",
         nome: "Raposa",
         imagem: "./assets/imgs/animais/raposa.webp",
-        descricao: "Desconhecido",
+        descricao: "A Raposa é um animal no DayZ . Ela foi adicionada pela primeira vez no patch 0.56, antes de ser reintroduzida no patch Experimental 1.26.",
         drops: "Carne.4x Bife de Raposa 1x Gordura.Pele.1x Pele de Raposa.Outros.Ossos",
         localizacao: "Campos",
         raridade: "Desconhecido",
@@ -103,7 +103,7 @@ const lista = [
         categoria: "Animais",
         nome: "Cabra Macho",
         imagem: "./assets/imgs/animais/cabraM.webp",
-        descricao: "",
+        descricao: "Um bode/cabra. Pode comer quase tudo.",
         drops: "Carne.5-10 x Bife de Cabra.Pele.1x Pele de Cabra.Outros.1 x vísceras 0-6 x gordura 1 x ossos",
         localizacao: "Campos,Fazendas,Vilas",
         raridade: "Cru",
@@ -769,7 +769,7 @@ const lista = [
       {
         categoria: "Espingardas",
         nome: "BK-12",
-        municao: "12ga 00 Buckshots,12ga Rifled Slugs,12ga Rubber Slugs",
+        municao: "12ga 00 Buckshots?12ga Rifled Slugs?12ga Rubber Slugs",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/Espingardas/bk12.png",
         descricao: "Uma antiga espingarda de ação de alavanca, também conhecida como (Spartan). Um dissuasor muito eficaz contra animais selvagens e outras ameaças. Com câmara de calibre 12.",
@@ -780,7 +780,7 @@ const lista = [
       {
         categoria: "Espingardas",
         nome: "BK-133",
-        municao: "12ga 00 Buckshots,12ga Rifled Slugs,12ga Rubber Slugs",
+        municao: "12ga 00 Buckshots?12ga Rifled Slugs?12ga Rubber Slugs",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/Espingardas/bk133.png",
         descricao: "Espingarda de ação pump de seis tiros alimentada por carregador interno. Ótima para caça de animais perigosos. Utiliza balas de calibre 12 e balas curtas.",
@@ -791,7 +791,7 @@ const lista = [
       {
         categoria: "Espingardas",
         nome: "BK-43",
-        municao: "12ga 00 Buckshots,12ga Rifled Slugs,12ga Rubber Slugs",
+        municao: "12ga 00 Buckshots?12ga Rifled Slugs?12ga Rubber Slugs",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/Espingardas/bk43.png",
         descricao: "Espingarda de ação de ruptura de cano duplo. Design antigo e confiável, capaz de disparar ambos os canos simultaneamente. Utiliza balas de calibre 12 e balas de chumbo.",
@@ -802,7 +802,7 @@ const lista = [
       {
         categoria: "Espingardas",
         nome: "Vaiga",
-        municao: "12ga 00 Buckshots,12ga Rifled Slugs,12ga Rubber Slugs",
+        municao: "12ga 00 Buckshots?12ga Rifled Slugs?12ga Rubber Slugs",
         carregador: "5º Vaiga Mag,8º Vaiga Mag,20º Tambor Vaiga Mag",
         imagem: "./assets/imgs/armas/Espingardas/vaiga.png",
         descricao: "Espingarda de tiro seletivo alimentada por um carregador removível. Com design semelhante aos fuzis de assalto KA, pode ser equipada com a maioria das miras compatíveis. Utiliza balas de calibre 12 e balas curtas.",
@@ -857,7 +857,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "AUR A1",
-        municao: "Balas de 5,56 x 45 mm.Balas traçantes de 5,56 x 45 mm",
+        municao: "Balas de 5,56 x 45 mm?Balas traçantes de 5,56 x 45 mm",
         carregador: "30ª Revista AUR",
         imagem: "./assets/imgs/armas/FuzisAssalto/auga1.png",
         descricao: "Uma arma bullpup de tiro seletivo. O design compacto e o cano curto tornam a arma adequada para combate corpo a corpo. É alimentada por um carregador dedicado. Utiliza munição de 5,56x45 mm.",
@@ -868,7 +868,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "AUR AX",
-        municao: "Balas de 5,56 x 45 mm.Balas traçantes de 5,56 x 45 mm",
+        municao: "Balas de 5,56 x 45 mm?Balas traçantes de 5,56 x 45 mm",
         carregador: "30º AUR Mag,10º Mag-C Mag,20º Mag-C Mag,30º Mag-C Mag,30º Mag padronizado,40º Mag-C Mag,60º Mag padronizado",
         imagem: "./assets/imgs/armas/FuzisAssalto/augX.png",
         descricao: "Uma arma bullpup de fogo seletivo. Uma variante moderna do AUR A1. A grade superior e o sistema de encaixe do carregador foram adaptados para funcionar com acessórios ocidentais padrão.",
@@ -879,7 +879,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "KA-101",
-        municao: "Balas de 5,56 x 45 mm.Balas traçantes de 5,56 x 45 mm",
+        municao: "Balas de 5,56 x 45 mm?Balas traçantes de 5,56 x 45 mm",
         carregador: "30º KA-101 Mag",
         imagem: "./assets/imgs/armas/FuzisAssalto/ak101.png",
         descricao: "Fuzil de assalto de tiro seletivo alimentado por carregador removível. Versão para exportação do KA-74M modernizado com acessórios compatíveis. Utiliza munição de 5,56x45 mm.",
@@ -890,7 +890,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "KA-74",
-        municao: "Balas redondas de 5,45 x 39 mm.Balas traçadoras de 5,45 x 39 mm",
+        municao: "Balas redondas de 5,45 x 39 mm?Balas traçadoras de 5,45 x 39 mm",
         carregador: "30º KA-74 Mag,45º KA-74 Mag",
         imagem: "./assets/imgs/armas/FuzisAssalto/ak74.png",
         descricao: "Fuzil de assalto de tiro seletivo alimentado por carregador removível. Substituição do KA-M por acessórios compatíveis. Utiliza munição de 5,45x39 mm.",
@@ -901,7 +901,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "KAS-74U",
-        municao: "Balas redondas de 5,45 x 39 mm.Balas traçadoras de 5,45 x 39 mm",
+        municao: "Balas redondas de 5,45 x 39 mm?Balas traçadoras de 5,45 x 39 mm",
         carregador: "30º KA-74 Mag,45º KA-74 Mag",
         imagem: "./assets/imgs/armas/FuzisAssalto/ak74u.png",
         descricao: "Fuzil de assalto de tiro seletivo alimentado por um carregador destacável. Versão reduzida do KA-74 com alguns acessórios compatíveis. Utiliza munição de 5,45x39 mm.",
@@ -912,7 +912,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "KA-M",
-        municao: "Balas de 7,62 x 39 mm.Balas traçantes de 7,62 x 39 mm",
+        municao: "Balas de 7,62 x 39 mm?Balas traçantes de 7,62 x 39 mm",
         carregador: "30º KA-M Mag,30º KA-M Polymer Mag,75º KA-M Drum Mag",
         imagem: "./assets/imgs/armas/FuzisAssalto/akm.png",
         descricao: "Fuzil de assalto de tiro seletivo alimentado por um carregador removível. Versão modernizada do clássico KA-47 com diversos acessórios disponíveis. Utiliza munição de 7,62x39 mm.",
@@ -923,7 +923,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "LE-MAS",
-        municao: "Balas de 5,56 x 45 mm.Balas traçantes de 5,56 x 45mm",
+        municao: "Balas de 5,56 x 45 mm?Balas traçantes de 5,56 x 45mm",
         carregador: "25ª Revista LE-MAS",
         imagem: "./assets/imgs/armas/FuzisAssalto/famas.png",
         descricao: "Um fuzil de assalto bullpup, projetado para ser compacto e manter uma alta cadência de tiro. A variante F1 suporta modos semiautomático, rajada e totalmente automático. É alimentado por um carregador destacável dedicado. Utiliza munição de 5,56x45 mm.",
@@ -934,7 +934,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "M16-A2",
-        municao: "Balas de 5,56 x 45 mm.Balas traçantes de 5,56 x 45 mm",
+        municao: "Balas de 5,56 x 45 mm?Balas traçantes de 5,56 x 45 mm",
         carregador: "10º Mag-C Mag,20º Mag-C Mag,30º Mag-C Mag,30º Mag padronizado,40º Mag-C Mag,60º Mag padronizado",
         imagem: "./assets/imgs/armas/FuzisAssalto/m16a2.png",
         descricao: "Fuzil de assalto de tiro seletivo, alimentado por um carregador destacável padronizado. Embora não possua suporte para miras personalizadas, o cano longo e a alta cadência de tiro oferecem um poder de fogo notável. Utiliza munição de 5,56x45 mm.",
@@ -945,7 +945,7 @@ const lista = [
       {
         categoria: "Fuzis de Assalto",
         nome: "M4-A1",
-        municao: "Balas de 5,56 x 45 mm.Balas traçantes de 5,56 x 45 mm",
+        municao: "Balas de 5,56 x 45 mm?Balas traçantes de 5,56 x 45 mm",
         carregador: "10º Mag-C Mag,20º Mag-C Mag,30º Mag-C Mag,30º Mag padronizado,40º Mag-C Mag,60º Mag padronizado",
         imagem: "./assets/imgs/armas/FuzisAssalto/m4a1.png",
         descricao: "Fuzil de assalto de tiro seletivo, alimentado por um carregador destacável padronizado. Oferece ampla personalização com acessórios. Utiliza munição de 5,56x45 mm.",
@@ -978,7 +978,7 @@ const lista = [
       {
         categoria: "Rifles de batalha",
         nome: "LAR",
-        municao: "Munições .308 WIN,Munições Tracer .308 WIN",
+        municao: "Munições .308 WIN?Munições Tracer .308 WIN",
         carregador: "20ª Revista LAR",
         imagem: "./assets/imgs/armas/RiflesBatalha/lar.png",
         descricao: "Rifle de combate de tiro seletivo, alimentado por um carregador destacável. Disponível para personalização com acessórios. Utiliza munição .308 WIN.",
@@ -989,7 +989,7 @@ const lista = [
       {
         categoria: "Rifles de ferrolho",
         nome: "CR-527",
-        municao: "Balas de 7,62 x 39 mm.Balas traçantes de 7,62 x 39 mm",
+        municao: "Balas de 7,62 x 39 mm?Balas traçantes de 7,62 x 39 mm",
         carregador: "5º CR-527 Mag",
         imagem: "./assets/imgs/armas/RiflesFerrolho/cr527.png",
         descricao: "Um rifle de caça com ferrolho, alimentado por um carregador removível. Leve e preciso em distâncias intermediárias. Utiliza munição de 7,62x39 mm.",
@@ -1000,7 +1000,7 @@ const lista = [
       {
         categoria: "Rifles de ferrolho",
         nome: "CR-550 Savana",
-        municao: "Munições .308 WIN.Munições Tracer .308 WIN",
+        municao: "Munições .308 WIN?Munições Tracer .308 WIN",
         carregador: "10º CR-550 Mag",
         imagem: "./assets/imgs/armas/RiflesFerrolho/cr550.png",
         descricao: "Um rifle de ferrolho, alimentado por um carregador removível. Resistente e feito para durar. Utiliza munição .308 WIN.",
@@ -1011,7 +1011,7 @@ const lista = [
       {
         categoria: "Rifles de ferrolho",
         nome: "M70 Tundra",
-        municao: "Munições .308 WIN.Munições Tracer .308 WIN",
+        municao: "Munições .308 WIN?Munições Tracer .308 WIN",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/RiflesFerrolho/m70Tundra.png",
         descricao: "Rifle de caça com ação de ferrolho de cinco tiros, alimentado por um carregador interno. Confiabilidade e alto desempenho de um design comprovado. Utiliza munição .308 WIN.",
@@ -1022,7 +1022,7 @@ const lista = [
       {
         categoria: "Rifles de ferrolho",
         nome: "Mosin 91/30",
-        municao: "Munições 7,62x54mmR.Munições Tracer 7,62x54mmR",
+        municao: "Munições 7,62x54mmR?Munições Tracer 7,62x54mmR",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/RiflesFerrolho/mosin.png",
         descricao: "Rifle de ferrolho com cinco tiros, alimentado por carregador interno. Ainda utilizável hoje devido à sua robustez. Utiliza munição 7,62x54mmR.",
@@ -1033,7 +1033,7 @@ const lista = [
       {
         categoria: "Rifles de ferrolho",
         nome: "Pionner",
-        municao: "Balas de 5,56 x 45 mm.Balas traçantes de 5,56 x 45 mm",
+        municao: "Balas de 5,56 x 45 mm?Balas traçantes de 5,56 x 45 mm",
         carregador: "5ª Revista Pioneer",
         imagem: "./assets/imgs/armas/RiflesFerrolho/pionner.png",
         descricao: "O Pioneer é um rifle de ferrolho versátil, preciso e leve, usado por unidades especiais da polícia. Utiliza munição de calibre 5,56x45 mm.",
@@ -1044,7 +1044,7 @@ const lista = [
       {
         categoria: "Rifles de ferrolho",
         nome: "SSG 82",
-        municao: "Balas redondas de 5,45 x 39 mm,Balas traçadoras de 5,45 x 39 mm",
+        municao: "Balas redondas de 5,45 x 39 mm?Balas traçadoras de 5,45 x 39 mm",
         carregador: "5º SSG 82 Mag",
         imagem: "./assets/imgs/armas/RiflesFerrolho/ssg82.png",
         descricao: "Um rifle de precisão com ferrolho alimentado por um carregador removível. Projetado para uso por policiais em ambientes urbanos. Utiliza munição de 5,45x39 mm.",
@@ -1055,7 +1055,7 @@ const lista = [
       {
         categoria: "Rifles de ferrolho",
         nome: "VS-89",
-        municao: "Munições 7,62x54mmR,Munições Tracer 7,62x54mmR",
+        municao: "Munições 7,62x54mmR?Munições Tracer 7,62x54mmR",
         carregador: "10º VS-89 Mag",
         imagem: "./assets/imgs/armas/RiflesFerrolho/vs89.png",
         descricao: "Rifle de precisão com ferrolho da mais alta precisão. Com a possibilidade de acoplar miras, é perfeito para combates de longa distância. Utiliza munição 762x54r.",
@@ -1066,7 +1066,7 @@ const lista = [
       {
         categoria: "Rifles de ruptura",
         nome: "BK-18",
-        municao: "Balas de 7,62 x 39 mm,Balas traçantes de 7,62 x 39 mm",
+        municao: "Balas de 7,62 x 39 mm?Balas traçantes de 7,62 x 39 mm",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/RiflesRuptura/bk18.png",
         descricao: "Rifle de caça com ação de ruptura de tiro único. Projetado com simplicidade, feito para durar. Utiliza munição de 7,62x39 mm.",
@@ -1077,7 +1077,7 @@ const lista = [
       {
         categoria: "Rifles de ruptura",
         nome: "Blaze",
-        municao: "Munições .308 WIN,Munições Tracer .308 WIN",
+        municao: "Munições .308 WIN?Munições Tracer .308 WIN",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/RiflesRuptura/blaze.png",
         descricao: "Rifle de ação de ruptura de cano duplo carregado com dois cartuchos .308 WIN.",
@@ -1099,7 +1099,7 @@ const lista = [
       {
         categoria: "Rifles de Atirador",
         nome: "VSD",
-        municao: "Munições 7,62x54mmR,Munições Tracer 7,62x54mmR",
+        municao: "Munições 7,62x54mmR?Munições Tracer 7,62x54mmR",
         carregador: "10º VSD Mag",
         imagem: "./assets/imgs/armas/RiflesAtirador/svd.png",
         descricao: "Rifle de atirador semiautomático alimentado por carregador removível. Compatível com miras KA. Utiliza munição 7,62x54mmR.",
@@ -1121,7 +1121,7 @@ const lista = [
       {
         categoria: "Rifles semiautomáticos",
         nome: "DMR",
-        municao: "Munições .308 WIN,Munições Tracer .308 WIN",
+        municao: "Munições .308 WIN?Munições Tracer .308 WIN",
         carregador: "10º DMR Mag,20º DMR Mag",
         imagem: "./assets/imgs/armas/RiflesSemiautomaticos/dmr.png",
         descricao: "Rifle semiautomático, carregado a partir de um carregador destacável. Possui um trilho que permite o uso de miras de fabricação ocidental. É adequado para precisão de longo alcance, mas apresenta um coice significativo quando disparado em rápida sucessão. Utiliza munição .308 WIN.",
@@ -1132,7 +1132,7 @@ const lista = [
       {
         categoria: "Rifles semiautomáticos",
         nome: "SK 59/66",
-        municao: "Balas de 7,62 x 39 mm,Balas traçantes de 7,62 x 39 mm",
+        municao: "Balas de 7,62 x 39 mm?Balas traçantes de 7,62 x 39 mm",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/RiflesSemiautomaticos/sks.png",
         descricao: "Um rifle semiautomático de dez tiros, alimentado por um carregador interno. Modelo mais antigo, mas ainda confiável. Utiliza munição de 7,62x39 mm.",
@@ -1154,7 +1154,7 @@ const lista = [
       {
         categoria: "Lançador",
         nome: "M79",
-        municao: "Granada explosiva de 40 mm,granada PO-X de 40 mm,granada de fumaça de 40 mm",
+        municao: "Granada explosiva de 40 mm?granada PO-X de 40 mm?granada de fumaça de 40 mm",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/Lanca/m79.png",
         descricao: "Lançador de granadas de ação rápida. Pode parecer antiquado, mas ainda é eficaz. Utiliza granadas de 40 mm.",

@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    background-color: var(--verde-fundo);
+}
+
+:root {
+    --verde-fundo: #152515;
+    --amarelo: #e3b062;
+}
