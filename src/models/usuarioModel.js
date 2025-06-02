@@ -19,7 +19,8 @@ function cadastrar(nome, email, senha) {
         INSERT INTO usuario (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+    return database.executar(instrucaoSql)
+    ;
 }
 
 module.exports = {

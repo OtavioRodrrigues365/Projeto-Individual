@@ -19,7 +19,6 @@ body {
     height: 60px;
     width: 100%;
     margin: 0;
-    top: 0;
     position: fixed;
     z-index: 99;
 }
@@ -30,6 +29,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 5px 570px 0px 10px;
+    height: 100%;
     
 }
 
@@ -44,7 +44,7 @@ body {
     color: white;
     list-style: none;
     width: 300px;
-    
+    align-items: center;
     
 }
 
@@ -83,7 +83,30 @@ body {
     font-family: UrbanJungle;
 }
 
-
 ul {
     display: flex;
   }
+
+.img-perfil {
+  border-radius: 55%;
+  border: 1px white solid;
+  overflow: hidden;
+  height: 3vh;
+  width: 30%;
+}
+
+.img-perfil img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.perfil{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    height: 10px;
+}

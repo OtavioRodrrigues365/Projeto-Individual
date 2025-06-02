@@ -11,9 +11,13 @@
 
 /* Adicionar aqui toda a estilização criada para sua aplicação. */
 body {
-    margin: 0;
-    
+    margin: 0;    
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
 
 html{
     scroll-behavior: smooth;
@@ -24,15 +28,20 @@ html{
     --amarelo: #e3b062;
 }
 
-.img-perfil{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+.img-perfil {
+  border-radius: 55%;
+  border: 1px white solid;
+  overflow: hidden;
+  height: 3vh;
+  width: 30%;
 }
 
-.img-perfil img{
-    width: 100%;
-    left: -10px;
+.img-perfil img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .perfil{
@@ -294,11 +303,24 @@ ul {
 }
 
 
-/* teste */
-.card-itens{
-    border: 1px white solid;
+/* Cards de Item */
+.card{
     width: 30%;
     height: 70%;
+}
+
+.card span{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    font-family: DayS;
+}
+
+.card-itens{
+    border: 1px white solid;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
     display: flex;
     justify-content: flex-start;
@@ -313,6 +335,7 @@ ul {
     font-size: 21px;
     text-align: justify;
     width: 90%;
+    height: 20%;
 }
 
 .card-itens img{
@@ -323,7 +346,7 @@ ul {
 }
 
 .card-itens button{
-    margin-top: 3%;
+    margin-top: 5%;
     width: 50%;
     height: 10%;
     font-size: 25px;
@@ -345,7 +368,12 @@ ul {
     flex-direction: column;
     align-items: center;
     color: white;
-    justify-content: flex-start;
+    justify-content: center;
+}
+
+.mapa{
+    width: 90%;
+    height: 100%;
 }
 
 .pagina-4 h4{

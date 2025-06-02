@@ -62,7 +62,9 @@ fetch(`/quiz/tentativas/${idUsuario}`, { cache: 'no-store' }).then(function (res
 // KPI´S
 function exibirIndicadores(lista_i) {
   var dtTentativa = lista_i[0].dtTentativa.split("T");
-  dtMelhorTempo.innerHTML = `data tentativa: ${dtTentativa[0]}`;
+  var dtTentativaSeparada = dtTentativa[0].split("-");
+  var dtTentativaFormatada = `${dtTentativaSeparada[2]}/${dtTentativaSeparada[1]}/${dtTentativaSeparada[0]}`
+  dtMelhorTempo.innerHTML = `data da tentativa: ${dtTentativaFormatada}`;
   mTempo.innerHTML = `${lista_i[0].MelhorTempo}`;
   quantidadeTotal.innerHTML = `${lista_i[0].QuantidadeQuiz}`;
   pontosTotal.innerHTML = `${lista_i[0].PontosTotal}`
@@ -143,10 +145,10 @@ const grafico2 = document.getElementById('grafico2');
 new Chart(grafico2, {
   type: 'doughnut',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Acessórios', 'Armas', 'Animais'],
     datasets: [{
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: [12, 19, 3],
       borderWidth: 1
     }]
   },
@@ -165,10 +167,10 @@ const grafico3 = document.getElementById('grafico3');
 new Chart(grafico3, {
   type: 'bar',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange',],
+    labels: ['2025/05/25', '2025/05/26', '2025/05/26', '2025/05/27', '2025/05/27', '2025/05/27','2025/05/28','2025/05/28','2025/05/29','2025/05/29'],
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      label: 'Tempo em Segundos',
+      data: [21, 40, 59, 30, 20, 26, 80,90,100,120],
       borderWidth: 1
     }]
   },

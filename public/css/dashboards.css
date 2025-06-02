@@ -79,14 +79,14 @@ body {
 
 .hello span {
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Poppins";
   width: 55%;
   height: 50%;
   display: inline-block;
   word-wrap: break-word;
   white-space: normal;
-  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .img-hello {
@@ -113,7 +113,6 @@ body {
 
 .btn-logout img {
   width: 40px;
-
 }
 
 
@@ -156,12 +155,16 @@ body {
 .tabela-ranking table {
   color: white;
   width: 100%;
+  height: 80%;
 }
-
+.tabela-ranking tbody{
+  height: 100%;
+}
 .tabela-ranking tbody tr:nth-child(1) {
   background-color: #4f524c;
   font-family: DayS;
   font-size: 30px;
+
 }
 
 .tabela-ranking tbody tr {
@@ -169,13 +172,13 @@ body {
   display: flex;
   background-color: #1c2118;
   font-size: 22px;
-
+  height: 9%;
 }
 
 .tabela-ranking tbody th {
   border: 1px #cccccc solid;
   width: 100%;
-  height: 50px;
+  height: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -196,7 +199,7 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 30%;
+  height: 20%;
 }
 
 .kpi {
@@ -205,7 +208,7 @@ body {
   height: 60%;
   display: flex;
   color: white;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -218,11 +221,11 @@ body {
   font-family: sans-serif;
   font-size: 30px;
   margin: 0;
-  padding-top: 10%;
 }
 
 #dtMelhorTempo{
-  padding-top: 3%;
+  margin: 0;
+  font-size: 20px;
 }
 
 .kpi #quantidadeTotal{
@@ -239,7 +242,7 @@ body {
 .container-graficos {
   display: flex;
   width: 100%;
-  height: 70%;
+  height: 80%;
   flex-wrap: wrap;
 }
 
@@ -251,31 +254,47 @@ body {
   align-items: center;
 }
 
-#grafico1{
-  width: px;
-  display: flex;
-  height: 10px;
+.g1{
+  width: 90%;
 }
+.grafico-1 h1{
+  color: red;
+  font-family: "Poppins";
+}
+
 
 .grafico-2 {
   width: 50%;
   height: 50%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-#grafico2{
-  width: 80%;
-  height: 80%;
+.grafico-2 h1 {
+  color: red;
+  font-family: "Poppins";
 }
+
+.g2{
+  width: 90%;
+}
+
 
 .grafico-3 {
   width: 100%;
   height: 50%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#grafico3{
-  width: 80%;
-  height: 80%;
+.grafico-3 h1{
+  color: red;
+  font-family: "Poppins";
+}
+
+.g3{
+  width: 100%;
+  height: 70%;
 }

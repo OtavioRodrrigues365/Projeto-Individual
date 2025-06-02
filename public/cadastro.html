@@ -134,6 +134,7 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
+        alert("Já existe um usuário com esse email");
         finalizarAguardar();
       });
 

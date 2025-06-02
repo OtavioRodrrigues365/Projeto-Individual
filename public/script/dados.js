@@ -637,7 +637,7 @@ const lista = [
       {
         categoria: "Pistolas",
         nome: "Longhorn",
-        municao: "Munições .308 WIN,Munições Tracer .308 WIN",
+        municao: "Munições .308 WIN?Munições Tracer .308 WIN",
         carregador: "Nenhum",
         imagem: "./assets/imgs/armas/Pistolas/chifreLongo.png",
         descricao: "Pistola de caça com ação de ruptura de tiro único. Sua munição potente a torna ideal para caça de grande porte. Utiliza munição .308 WIN.",

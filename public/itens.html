@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/icon/favicon1.png">
@@ -9,70 +9,73 @@
     <link
     href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
+    <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/itens.css">
+    <link rel="stylesheet" href="./styles/itemUnico.css">
     <title>Itens DayZ</title>
-</head>
-<body>
-     <div class="header" id="header">
-    <div class="container">
-      <a href="./index.html">
-      <img class="fundo" src="./assets/imgs/LogoFinal.png" />
-      </a>
-      <ul class="navbar">
-
-        <li class="agora">
-          <a href="index.html#1">Inicial</a>
+  </head>
+  <body onload="validarSessao()">
+    <div class="header" id="header">
+      <div class="container">
+        <img class="fundo" src="./assets/imgs/LogoFinal.png"/>
+        <ul class="navbar">
+          
+          <li class="agora">
+            <a href="index.html#1">Inicial</a>
+          </li>
+          <li>
+            <a href="index.html#2">Sobre</a>
+          </li>
+          <li>
+            <a href="./jogo/jogo.html">Mini DayZ</a>
+          </li>
+          <li>
+          <a href="./quiz/quiz.html">Quiz</a>
         </li>
-        <li>
-          <a href="#2">Sobre</a>
-        </li>
-        <li>
-          <a href="./jogo/jogo.html">Mini DayZ</a>
-        </li>
-        <li>
-          <a href="#">Quiz</a>
-        </li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="cadastro.html">Cadastro</a>
-        </li>
-      </ul>
-      
-    </div>
-  </div>
-  <div style="height: 100px; width: 100%;">
-
-  </div>
-  <div class="carrossel-1" id="carrossel"> 
-  </div>
-  <div class="cards-itens" id="cards">
-    <!-- <div class="item">
-      <div class="nome-img">
-        <div class="subcategoria">
-          <span class="sub">Subcategoria:</span>
-          <p>Granada</p>
-        </div>
-        <img src="./assets/imgs/armas/Granadas/granadaFrag-2.png" alt="Imagem item">
-        <span>6-M7 Granada de Fragmentação</span>
-      </div>
-      <div class="descricao">
-        <h1>Descrição</h1>
-        <p>Granada de fumaça usada pelas forças orientais. Simples, porém eficaz para fornecer cobertura ou marcar posições.</p>
-        <p></p>
-        <h1>Características</h1>
-        <h4>Tipo</h4>
-        <ul>
-          <li>Fragmentação</li>
+          <li id="sessao">
+            <a href="login.html">Login</a>
+          </li>
+          <li id="sessao1">|</li>
+          <li id="sessao2">
+            <a href="cadastro.html">Cadastro</a>
+          </li>
+          <div id="teste"></div>
         </ul>
-        <h4>Localização</h4>
-        <ol>
-          <li>Polícia militar</li>
-        </ol>
-        <h4>Raridade</h4>
+      </div>
+    </div>
+    <div style="height: 100px; width: 100%;">
+    </div>
+    <span class="titulo-3" id="titulo3"></span>
+    <button class="btn-todos" onclick="exibir()">Ver Todos</button>
+    <div class="container-todos" id="containerTodos">
+      
+    <div class="carrossel-1" id="carrossel">
+    </div>
+    <div class="cards-itens" id="cards">
+      <!-- <div class="item">
+        <div class="nome-img">
+          <div class="subcategoria">
+            <span class="sub">Subcategoria:</span>
+            <p>Granada</p>
+          </div>
+          <img src="./assets/imgs/armas/Granadas/granadaFrag-2.png" alt="Imagem item">
+          <span>6-M7 Granada de Fragmentação</span>
+        </div>
+        <div class="descricao">
+          <h1>Descrição</h1>
+          <p>Granada de fumaça usada pelas forças orientais. Simples, porém eficaz para fornecer cobertura ou marcar posições.</p>
+          <p></p>
+          <h1>Características</h1>
+          <h4>Tipo</h4>
+          <ul>
+            <li>Fragmentação</li>
+          </ul>
+          <h4>Localização</h4>
+          <ol>
+            <li>Polícia militar</li>
+          </ol>
+          <h4>Raridade</h4>
         <ol>
           <li>Desconhecido</li>
         </ol>
@@ -130,17 +133,17 @@
         <img src="./assets/imgs/armas/FuzisAssalto/ak74.png" alt="Imagem item">
         <span>KA-74</span>
         <div class="carregadores">
-        <div class="municao">
-          <div>Munição</div>
-          <div>Muni</div>
+          <div class="municao">
+            <div>Munição</div>
+            <div>Muni</div>
+          </div>
+          <div class="carregador">
+            <div>Carregadores</div>
+            <div>Carregador</div>
+          </div>
         </div>
-        <div class="carregador">
-          <div>Carregadores</div>
-          <div>Carregador</div>
-        </div>
-        </div>
-        </div>
-        <div class="descricao">
+      </div>
+      <div class="descricao">
         <h1>Descrição</h1>
         <p>knadjdnsakndkjandkja</p>
         <p></p>
@@ -149,21 +152,22 @@
         <ol>
           <li>Militar</li>
         </ol>
-          <h4>Raridade</h4>
-          <ul>
+        <h4>Raridade</h4>
+        <ul>
           <li>Raro</li>
-          </ul>
-          <h4>Variantes</h4>
-          <ol>
+        </ul>
+        <h4>Variantes</h4>
+        <ol>
           <li>Nenhum</li>
-          </ol>
-          </div>
-          </div>
+        </ol>
+      </div>
     </div>
-     -->
   </div>
+  -->
+</div>
+</div>
 </body>
 <script src="./script/dados.js"></script>
 <script src="./script/itens.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 </html>

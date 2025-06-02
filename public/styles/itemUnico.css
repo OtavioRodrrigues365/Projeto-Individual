@@ -1,168 +1,87 @@
-:root {
-    --verde-fundo: #152515;
-    --amarelo: #e3b062;
-}
-body{
-  background-color: var(--verde-fundo);
-}
-body::-webkit-scrollbar {
-  display: none;
-}
-
-
-/*Todos carrosseis */
-swiper-container {
-    width: 100%;
-    padding-top: 100px;
-  }
-
-  swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-  }
-
-  swiper-slide img {
-    display: block;
-    width: 100%;
-  }
-
-
-  .carrossel-1{
-  color: white;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    display: block;
-}
-
-.carrossel-1 h1{
-  top: 80px;
-  position: relative;
-}
-
-
-.btn-todos{
- position: absolute;
- width: 6%;
- height: 4%;
- background-color: #152515;
- color: white;
- font-size: 15px;
- font-family: "Poppins";
- margin-top: 0.5%;
- margin-left: 92%;
- overflow: hidden;
- z-index: 30;
-}
-
-.titulo-3{
-    font-size: 50px;
-    font-family: DayS;
-    color: white;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.nome-itens span{
-    order: 1;
-    z-index: 99;
-    position: fixed;
-}
-
-
-
-/* Estilo do Card */
-.cards-itens{
-  height: auto;
-  padding: 20px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.item{
+/* Estilo do Card Unico */
+.itemUnico{
   display: flex;
   justify-content: space-between;
   background-color: #587054;
   border-radius: 10px;
-  width: 40%;
-  margin-top: 40px;
- 
+  width: 50%;
+  margin-top: -14px;
 }
 
-.nome-img{
+.nome-imgUnico{
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.item .descricao{
-  border-left: 1px rgb(255, 255, 255) solid;
+.itemUnico .descricaoUnico{
+  border-left: 1px white solid;
+  border-right: 1px white solid;
   padding: 0px 20px;
   width: 50%;
   font-family: sans-serif;
   color: white;
 }
-.item .descricao h1{
+.itemUnico .descricaoUnico h1{
   color: black;
 }
 
-.item .descricao h4{
+.itemUnico .caracteristicaUnico h4{
   color: rgb(240, 37, 37);
 }
 
-.nome-img img{
+.itemUnico .caracteristicaUnico{
+  font-family: sans-serif;
+  color: white;
+  padding: 0px 40px 0px 50px;
+}
+
+.nome-imgUnico img{
   width: 70%;
   background-color: rgb(37, 37, 37);
   border-radius: 3px;
 }
 
-.nome-img span{
+.nome-imgUnico span{
   font-size: 37px;
   text-align: center;
 }
 
-.utilizado{
+
+.utilizadoUnico{
   display: flex;
   justify-content: center;
   font-family: sans-serif;
-  
+  align-items: center;
+  width: 40%;
 }
 
-.nome-img .utilizado{
+.nome-img .utilizadoUnico{
   display: flex;
   width: 100%;
 }
 
 
-
 /* Acessórios */
-.utilizado table{
+.utilizadoUnico table{
   color: white;
-  width: 80%;
+  width: 90%;
 }
 
-.utilizado tbody tr:nth-child(1){
+.utilizadoUnico tbody tr:nth-child(1){
   background-color: #4f524c;
   font-size: 30px;
 }
 
-.utilizado tbody tr{
+.utilizadoUnico tbody tr{
   display: flex;
   background-color: #1c2118;
   font-size: 14px;
   
 }
 
-.utilizado tbody th{
+.utilizadoUnico tbody th{
   border: 1px #cccccc solid;
   width: 50%;
   height: auto;
@@ -174,7 +93,7 @@ swiper-container {
 
 
 /* Animais */
-.drops{
+.dropsUnico{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -183,25 +102,25 @@ swiper-container {
   font-weight: bolder;
   color: rgb(99, 19, 19);
 }
-.drops span{
+.dropsUnico span{
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-.drops table{
+.dropsUnico table{
   color: white;
   width: 100%;
 }
 
 
-.drops tbody tr{
+.dropsUnico tbody tr{
   display: flex;
   background-color: #1c2118;
   font-size: 14px;
   
 }
 
-.drops tbody th{
+.dropsUnico tbody th{
   border: 1px #cccccc solid;
   width: 50%;
   height: auto;
@@ -212,18 +131,18 @@ swiper-container {
 }
 
 /* Armadilhas e Granadas */
-.subcategoria{
+.subcategoriaUnico{
   text-align: center;
   padding: 0px 0px 30px 0px;
 }
 
-.sub{
+.subUnico{
   font-size: 14px;
   font-family: DayS;
 
 }
 
-.subcategoria p{
+.subcategoriaUnico p{
   font-size: 30px;
   margin: 0;
 }
@@ -231,14 +150,14 @@ swiper-container {
 
 /* Carregadores e Munição */
 
-.carregadores{
+.carregadoresUnico{
   display: flex;
   width: auto;
   font-size: 13px;
 }
 
 
-.carregadores .municao div:nth-child(1){
+.carregadoresUnico .municao div:nth-child(1){
   background-color: #4f524c;
   font-size: 20px;
   color: white;
@@ -246,7 +165,7 @@ swiper-container {
   border: 1px white solid;
 }
 
-.carregadores .municao div{
+.carregadoresUnico .municao div{
   display: flex;
   align-items: center;
   height: 20px;
@@ -258,7 +177,7 @@ swiper-container {
   border-collapse: collapse;
 }
 
-.carregadores .carregador div:nth-child(1){
+.carregadoresUnico .carregador div:nth-child(1){
   background-color: #4f524c;
   font-size: 20px;
   color: white;
@@ -269,7 +188,7 @@ swiper-container {
   border-right: 1px white solid;
 }
 
-.carregadores .carregador div{
+.carregadoresUnico .carregador div{
   display: flex;
   align-items: center;
   height: 20px;
@@ -280,10 +199,3 @@ swiper-container {
   border: 1px white solid;
   border-collapse: collapse;
 }
-
-
-/* TODOS OS ITENS */
-.container-todos{
-  
-}
-
