@@ -54,7 +54,7 @@
   justify-content: center;
   font-family: sans-serif;
   align-items: center;
-  width: 40%;
+  width: 50%;
 }
 
 .nome-img .utilizadoUnico{
@@ -71,7 +71,7 @@
 
 .utilizadoUnico tbody tr:nth-child(1){
   background-color: #4f524c;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .utilizadoUnico tbody tr{
@@ -152,7 +152,7 @@
 
 .carregadoresUnico{
   display: flex;
-  width: auto;
+  width: 80%;
   font-size: 13px;
 }
 

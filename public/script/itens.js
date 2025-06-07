@@ -72,6 +72,11 @@ function exibirItem(id){
       <img src="${itemAtual.imagem}" alt="Imagem item">
       <span>${itemAtual.nome}</span>
       </div>
+      <div class="descricaoUnico">
+        <h1>Descrição</h1>
+        <p>${itemAtual.descricao}</p>
+        <p></p>
+        </div>
         <div class="utilizadoUnico">
           <table>
             <tbody>
@@ -95,10 +100,7 @@ function exibirItem(id){
             </tbody>
           </table>
       </div>
-      <div class="descricaoUnico">
-        <h1>Descrição</h1>
-        <p>${itemAtual.descricao}</p>
-        <p></p>
+        <div class="caracteristicaUnico">
         <h1>Características</h1>
         <h4>Localização</h4>
         <ol>`;
@@ -115,7 +117,7 @@ function exibirItem(id){
         <ol>
           <li>${itemAtual.variante}</li>
         </ol>
-      </div>
+        </div>
     </div>`;
     }else if(indice >= 51 && indice <= 60){
       var itensCards = ``;
@@ -124,17 +126,19 @@ function exibirItem(id){
       var localizacaoSeparada = lista[indice].localizacao.split(",");
       itensCards += `<div class="itemUnico" id = "${indice}">
       <div class="nome-imgUnico">
-        <div class="subcategoriaUnico">
-          <span class="subUnico">Subcategoria:</span>
-          <p>${itemAtual.subcategoria}</p>
-        </div>
-        <img src="${itemAtual.imagem}" alt="Imagem item">
-        <span>${itemAtual.nome}</span>
+      <div class="subcategoriaUnico">
+      <span class="subUnico">Subcategoria:</span>
+      <p>${itemAtual.subcategoria}</p>
+      </div>
+      <img src="${itemAtual.imagem}" alt="Imagem item">
+      <span>${itemAtual.nome}</span>
       </div>
       <div class="descricaoUnico">
-        <h1>Descrição</h1>
-        <p>${itemAtual.descricao}</p>
-        <p></p>
+      <h1>Descrição</h1>
+      <p>${itemAtual.descricao}</p>
+      <p></p>
+      </div>
+      <div class="caracteristicaUnico">
         <h1>Características</h1>
         <h4>Tipo</h4>
         <ul>
@@ -195,6 +199,8 @@ function exibirItem(id){
         <h1>Descrição</h1>
         <p>${itemAtual.descricao}</p>
         <p></p>
+        </div>
+        <div class="caracteristicasUnico">
         <h1>Características</h1>
         <h4>Localização</h4>
         <ol>`;
@@ -230,6 +236,13 @@ function exibirItem(id){
       <div class="nome-imgUnico">
         <img src="${itemAtual.imagem}" alt="Imagem item">
         <span>${itemAtual.nome}</span>
+        
+        </div>
+        <div class="descricaoUnico">
+        <h1>Descrição</h1>
+        <p>${itemAtual.descricao}</p>
+        <p></p>
+        </div>
         <div class="carregadoresUnico">
         <div class="municao">
           <div>Munição</div>`;
@@ -248,11 +261,7 @@ function exibirItem(id){
             itensCards +=`
         </div>
         </div>
-        </div>
-        <div class="descricaoUnico">
-        <h1>Descrição</h1>
-        <p>${itemAtual.descricao}</p>
-        <p></p>
+        <div class="caracteristicaUnico">
         <h1>Características</h1>
         <h4>Localização</h4>
         <ol>`;

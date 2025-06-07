@@ -12,40 +12,114 @@ USE zonaDayz;
 
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(80) UNIQUE,
 	senha VARCHAR(50)
 );
 
 INSERT INTO usuario VALUES
-(default,'luis','luis@gmail.com','tata'),
-(default,'otavio','otavio@gmail.com','tata'),
-(default,'eliude','eliude@gmail.com','tata123'),
-(default,'gustavo','gustavo@gmail.com','tata123');
+(default,'Otavio','otavio@gmail.com','tata'),
+(default,'Luis','luis@gmail.com','tata'),
+(default,'Guilherme','guilherme@gmail.com','tata'),
+(default,'Willian','willian@gmail.com','tata'),
+(default,'Vivian','vivian@gmail.com','tata'),
+(default,'Fernanda','fernanda@gmail.com','tata'),
+(default,'Leticia','leticia@gmail.com','tata'),
+(default,'Monteiro','monteiro@gmail.com','tata'),
+(default,'JP','jp@gmail.com','tata'),
+(default,'Kaori','kaori@gmail.com','tata'),
+(default,'Eduarda','eduarda@gmail.com','tata');
 
 CREATE TABLE quiz(
 	idQuiz INT PRIMARY KEY AUTO_INCREMENT,
-    pontos INT,
-    duracao TIME,
+    dtTentativa DATE DEFAULT (CURRENT_DATE),
     fkUsuario INT,
-    FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
+    FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+    pontos INT,
+    duracao TIME
 );
 
 
-INSERT INTO quiz VALUES
-(default, 30, '00:30:21', 1),
-(default, 30, '00:31:21', 2),
-(default, 30, '00:28:21', 3),
-(default, 28, '00:28:21', 4);
+
+use zonaDayz;
+
+INSERT INTO quiz(pontos,duracao,fkUsuario) VALUES
+(30, '00:02:22', 1),
+(27, '00:05:21', 1),
+(24, '00:08:21', 1),
+(21, '00:18:21', 1),
+(18, '00:02:21', 1),
+(15, '00:09:21', 6),
+(12, '00:18:21', 7),
+(9, '00:12:21', 8),
+(6, '00:33:21', 9),
+(3, '00:10:21', 10);
 
 
+SELECT * FROM quiz;
 
--- ranking
+CREATE TABLE tutorial(
+idTutorial INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(100)
+);
+
+SELECT * FROM tutorial;
+INSERT INTO tutorial(nome) VALUES
+('Como construir uma base no Dayz');
+
+
+CREATE TABLE acesso(
+idAcesso INT AUTO_INCREMENT,
+fkUsuario INT,
+fkTutorial INT,
+dtUltimoAcesso DATE DEFAULT(CURRENT_DATE),
+progresso INT,
+FOREIGN KEY(fkUsuario) REFERENCES usuario(idUsuario),
+FOREIGN KEY(fkTutorial) REFERENCES tutorial(idTutorial),
+PRIMARY KEY(idAcesso, fkUsuario, fkTutorial)
+);
+
+SELECT * FROM acesso;
+
+INSERT INTO acesso(fkUsuario,fkTutorial,progresso) VALUES
+(1, 1, 85);
+
+SELECT u.nome, t.nome, a.dtUltimoAcesso FROM acesso AS a
+JOIN usuario AS u ON u.idUsuario = a.fkUsuario
+JOIN tutorial AS t ON t.idTutorial = a.fkTutorial;
+
+-- select do ranking
 CREATE VIEW vw_ranking_quiz AS
-SELECT u.nome AS Nome, q.pontos AS 'Pontos do Quiz', q.duracao AS 'Tempo'
-FROM usuario AS u 
-JOIN quiz AS q ON q.fkUsuario = u.id ORDER BY q.pontos DESC, q.duracao ASC;
+SELECT u.idUsuario, u.nome AS Nome, MAX(q.pontos) AS Pontos, MIN(q.duracao) AS Tempo
+FROM usuario AS u
+JOIN quiz AS q ON q.fkUsuario = u.idUsuario
+GROUP BY u.idUsuario, u.nome
+ORDER BY MAX(q.pontos) DESC, MIN(q.duracao)
+LIMIT 10;
 
 
 SELECT * FROM vw_ranking_quiz;
+
+-- Melhor Tempo usuário, Quantidade de quiz realizados, Soma dos pontos de todos os Quiz
+SELECT fkUsuario,MIN(duracao) AS MelhorTempo,dtTentativa,COUNT(idQuiz) AS QuantidadeQuiz,SUM(pontos) AS PontosTotal 
+FROM quiz AS q
+WHERE fkUsuario = 1 GROUP BY q.fkUsuario, q.dtTentativa;
+
+SELECT q.fkUsuario,q.duracao AS MelhorTempo,q.dtTentativa,tempo.QuantidadeQuiz,tempo.PontosTotal
+FROM quiz q
+JOIN ( SELECT fkUsuario, COUNT(idQuiz) AS QuantidadeQuiz, SUM(pontos) AS PontosTotal
+FROM quiz
+WHERE fkUsuario = 1
+) AS tempo ON tempo.fkUsuario = q.fkUsuario
+WHERE q.fkUsuario = 1 AND q.duracao = ( SELECT MIN(duracao) 
+FROM quiz 
+WHERE fkUsuario = 1 ) LIMIT 1;
+
+
+-- dados graficos 1
+SELECT fkUsuario, dtTentativa, pontos FROM quiz WHERE fkUsuario = 1 ORDER BY dtTentativa;
+
+-- dados do gráficos 2
+SELECT dtTentativa, duracao FROM quiz WHERE fkUsuario = 1;
+

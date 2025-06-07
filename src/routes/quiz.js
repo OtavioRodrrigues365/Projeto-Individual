@@ -20,4 +20,7 @@ router.get("/tentativas/:idUsuario", function (req, res) {
     quizController.buscarTentativas(req, res);
 });
 
+router.get("/melhorTempo/:idUsuario", function (req, res) {
+    quizController.buscarMelhorTempo(req, res);
+});
 module.exports = router;

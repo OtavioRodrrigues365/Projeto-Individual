@@ -1,7 +1,7 @@
  
 
-    var segundos = 0
-    var minutos = 0
+    var segundos = 0;
+    var minutos = 0;
     var contador;
     var duracao = ``;
 
@@ -41,7 +41,6 @@
         preencherHTMLcomQuestaoAtual(0)
         
         btnSubmeter.disabled = false
-        btnProx.disabled = true
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
     }
@@ -75,12 +74,13 @@
             alert("Não há alternativas escolhidas. Escolha uma opção.")
         } else {
             btnSubmeter.disabled = true
-            btnProx.disabled = false
+            
             
             habilitarAlternativas(false)
             
             checarResposta()
         }
+        avancar();
     }
     
     function habilitarAlternativas(trueOrFalse) {
@@ -94,7 +94,6 @@
     }
     
     function avancar() {
-        btnProx.disabled = true
         btnSubmeter.disabled = false
         
         desmarcarRadioButtons()
@@ -103,7 +102,7 @@
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
             alert("Atenção... a próxima é a ultima questão!")
-            btnProx.innerHTML = `Finalizar Quiz`;
+            btnSubmeter.innerHTML = `Finalizar Quiz`;
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
             finalizarJogo()
@@ -195,7 +194,6 @@
         
         document.getElementById('jogo').classList.add("text-new-gray") 
         
-        btnProx.disabled = true
         btnSubmeter.disabled = true
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false

@@ -8,43 +8,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="jogo.css
-    ">
-    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="./styles/jogo.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
     <script src="../js/sessao.js"></script>
     <title>Jogo</title>
 </head>
 
 <body onload="validarSessao()">
-    <div class="header">
-        <div class="container">
-          <img class="fundo" src="../assets/imgs/LogoFinal.png" />
-          <ul class="navbar">
-    
-            <li class="agora">
-              <a href="../index.html">Inicial</a>
-            </li>
-            <li>
-              <a href="../index.html#2">Sobre</a>
-            </li>
-            <li>
-              <a href="#">Mini DayZ</a>
-            </li>
-            <li>
-              <a href="#">Quiz</a>
-            </li>
-            <li>
-              <a href="login.html">Login</a>
-            </li>
-            <li>|</li>
-            <li>
-              <a href="cadastro.html">Cadastro</a>
-            </li>
-          </ul>
-    
-        </div>
-      </div>
+   <div class="header" id="header">
+    <div class="container">
+      <img class="fundo" src="../assets/imgs/LogoFinal.png"/>
+      <ul class="navbar">
+
+        <li class="agora">
+          <a href="index.html#1">Inicial</a>
+        </li>
+        <li>
+          <a href="index.html#2">Sobre</a>
+        </li>
+        <li>
+          <a href="#">Mini DayZ</a>
+        </li>
+        <li>
+          <a href="./quiz/quiz.html">Quiz</a>
+        </li>
+          <li id="sessao">
+            <a href="login.html">Login</a>
+          </li>
+          <li id="sessao1">|</li>
+          <li id="sessao2">
+            <a href="cadastro.html">Cadastro</a>
+          </li>
+        <div id="teste"></div>
+      </ul>
+
+    </div>
+  </div>
     
     
     
@@ -60,7 +59,7 @@
         </div>
     </div>
 
-    <script src="jogo.js"></script>
+    <script src="./script/jogo.js"></script>
 </body>
 
 </html>

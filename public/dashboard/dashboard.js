@@ -58,6 +58,26 @@ fetch(`/quiz/tentativas/${idUsuario}`, { cache: 'no-store' }).then(function (res
     console.error(`Erro na obtenção dos dados p/ indicadores: ${error.message}`);
   });
 
+// Função de pegar os 10 ultimos melhores tempos do usuário.
+fetch(`/quiz/melhorTempo/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+  if (response.status === 204) {
+    alert('Nenhuma tempo encontrado. Faça um quiz e veja seu tempo!');
+    return;
+  }
+  if (response.ok) {
+    response.json().then(function (resposta) {
+      console.log(`Dados recebidos melhor tempo: ${JSON.stringify(resposta)}`);
+      exibirMelhorTempo(resposta)
+    });
+  } else {
+    console.error('Nenhum dado encontrado ou erro na API');
+  }
+})
+  .catch(function (error) {
+    console.error(`Erro na obtenção dos dados p/ indicadores: ${error.message}`);
+  });
+
+
 
 // KPI´S
 function exibirIndicadores(lista_i) {
@@ -94,9 +114,10 @@ function exibirNomes(lista) {
 
 const lista_pontos = [];
 const lista_tentativa = [];
+
 //Função de exibir ultimas 5 tentativas
 function exibirTentativas(dados) {
-
+  // tratando os dados pra cada tipo de tamanho
   if (dados.length < 1) {
     alert('Realize o quiz para ter seus pontos');
   } else if (dados.length <= 5) {
@@ -137,9 +158,66 @@ function exibirTentativas(dados) {
     }
   });
 }
-console.log(lista_pontos);
-// graficos
 
+console.log(lista_pontos);
+
+// graficos
+const lista_tempo = [];
+const lista_dtMelhorTempo = []
+
+function exibirMelhorTempo(dados){
+   if (dados.length < 1) {
+    alert('Realize o quiz para ter seus pontos');
+  } else if (dados.length <= 10) {
+    for (var i = dados.length - 1; i >= 0; i--) {
+      var tempoSeparado = dados[i].duracao.split(":");
+      var total = (Number(tempoSeparado[1])*60)+Number(tempoSeparado[2]);
+
+      lista_tempo.push(total);
+      var dtFormatada =  dados[i].dtTentativa.split("T");
+      dtFormatada = dtFormatada[0].split("-");
+      dtFormatada = `${dtFormatada[2]}/${dtFormatada[1]}/${dtFormatada[0]}`
+      lista_dtMelhorTempo.push(dtFormatada);
+    }
+  } else {
+    for (var i = dados.length - 1; i >= dados.length - 10; i--) {
+      var tempoSeparado = dados[i].duracao.split(":");
+      var total = (Number(tempoSeparado[1])*60)+Number(tempoSeparado[2]);
+
+      lista_tempo.push(total);
+      var dtFormatada =  dados[i].dtTentativa.split("T");
+      dtFormatada = dtFormatada[0].split("-");
+      dtFormatada = `${dtFormatada[2]}/${dtFormatada[1]}/${dtFormatada[0]}`
+      lista_dtMelhorTempo.push(dtFormatada);
+    }
+  }
+
+  const grafico3 = document.getElementById('grafico3');
+
+new Chart(grafico3, {
+  type: 'bar',
+  data: {
+    labels: lista_dtMelhorTempo.reverse(),
+    datasets: [{
+      label: 'Tempo em Segundos',
+      data: lista_tempo.reverse(),
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+
+  console.log(lista_tempo)
+}
 const grafico2 = document.getElementById('grafico2');
 
 new Chart(grafico2, {
@@ -162,25 +240,5 @@ new Chart(grafico2, {
     }
   }
 });
-const grafico3 = document.getElementById('grafico3');
 
-new Chart(grafico3, {
-  type: 'bar',
-  data: {
-    labels: ['2025/05/25', '2025/05/26', '2025/05/26', '2025/05/27', '2025/05/27', '2025/05/27','2025/05/28','2025/05/28','2025/05/29','2025/05/29'],
-    datasets: [{
-      label: 'Tempo em Segundos',
-      data: [21, 40, 59, 30, 20, 26, 80,90,100,120],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
+

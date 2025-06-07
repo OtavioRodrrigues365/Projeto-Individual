@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles/tutoriais.css">
     <title>ZonaDayZ | Tutoriais</title>
 </head>
-<body>
+<body onload="exibirVideos()">
     
      <div class="header" id="header">
     <div class="container">
@@ -19,13 +19,13 @@
           <a href="index.html#1">Inicial</a>
         </li>
         <li>
-          <a href="#2">Sobre</a>
+          <a href="index.html#2">Sobre</a>
         </li>
         <li>
-          <a href="./jogo/jogo.html">Mini DayZ</a>
+          <a href="jogo.html">Mini DayZ</a>
         </li>
         <li>
-          <a href="#">Quiz</a>
+          <a href="quiz/quiz.html">Quiz</a>
         </li>
         <li>
           <a href="login.html">Login</a>
@@ -38,5 +38,18 @@
       
     </div>
   </div>
+  <div class="container-trilha" id="trilha">
+    <div onclick="rodar()" class="checkpoint1" id="check1">
+      <span>1</span>
+    </div>
+  </div>
+  <div class="videos" id="video1">
+    
+  </div>
+  <div class="circle">
+    <div class="barra">
+    </div>
+  </div>
 </body>
 </html>
+<script src="./script/tutoriais.js"></script>
