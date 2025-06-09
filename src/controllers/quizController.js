@@ -6,6 +6,9 @@ function guardarQuiz(req, res) {
     var pontos = req.body.pontosServer;
     var duracao = req.body.duracaoServer;
     var fkUsuario = req.body.fkUsuarioServer;
+    var armas = req.body.armasServer;
+    var animais = req.body.animaisServer;
+    var acessorios = req.body.acessoriosServer;
 
     // Faça as validações dos valores
     if (pontos == undefined) {
@@ -14,10 +17,16 @@ function guardarQuiz(req, res) {
         res.status(400).send("Seu tempo está undefined!");
     } else if (fkUsuario == undefined) {
         res.status(400).send("Sua fkUsuario está undefined!");
+    } else if (armas == undefined) {
+        res.status(400).send("Sua pontuação de armas está undefined!");
+    } else if (animais == undefined) {
+        res.status(400).send("Sua pontuação de animais está undefined!");
+    } else if (acessorios == undefined) {
+        res.status(400).send("Sua pontuação de acessórios está undefined!");
     }else {
 
         // Passe os valores como parâmetro e vá para o arquivo quizModel.js
-        quizModel.guardarQuiz(pontos, duracao, fkUsuario)
+        quizModel.guardarQuiz(pontos, duracao, fkUsuario, armas, animais, acessorios)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -104,10 +113,28 @@ function buscarMelhorTempo(req, res) {
     });
 }
 
+function buscarCategorias(req, res) {
+    var idUsuario = req.params.idUsuario;
+    console.log(`Buscando o categorias e taxa de acerto`);
+
+    quizModel.buscarCategorias(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar categorias.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     guardarQuiz,
     buscarRanking,
     buscarIndicadores,
     buscarTentativas,
-    buscarMelhorTempo
+    buscarMelhorTempo,
+    buscarCategorias
 }

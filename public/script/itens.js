@@ -734,7 +734,7 @@ function exibirTodos(){
   // exibirCarrosselComposto();
   exibirCarregadores();
 }
-  
+
 }
 function exibirUm(){
   ativo = false

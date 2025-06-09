@@ -23,4 +23,8 @@ router.get("/tentativas/:idUsuario", function (req, res) {
 router.get("/melhorTempo/:idUsuario", function (req, res) {
     quizController.buscarMelhorTempo(req, res);
 });
+
+router.get("/taxaCategoria/:idUsuario", function (req, res) {
+    quizController.buscarCategorias(req, res);
+});
 module.exports = router;

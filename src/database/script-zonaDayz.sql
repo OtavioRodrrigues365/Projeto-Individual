@@ -18,6 +18,9 @@ CREATE TABLE usuario (
 	senha VARCHAR(50)
 );
 
+SELECT * FROM usuario;
+
+
 INSERT INTO usuario VALUES
 (default,'Otavio','otavio@gmail.com','tata'),
 (default,'Luis','luis@gmail.com','tata'),
@@ -37,19 +40,20 @@ CREATE TABLE quiz(
     fkUsuario INT,
     FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     pontos INT,
-    duracao TIME
+    duracao TIME,
+    armas INT,
+    acessorios INT,
+    animais INT
 );
 
 
 
-use zonaDayz;
-
 INSERT INTO quiz(pontos,duracao,fkUsuario) VALUES
 (30, '00:02:22', 1),
-(27, '00:05:21', 1),
-(24, '00:08:21', 1),
-(21, '00:18:21', 1),
-(18, '00:02:21', 1),
+(27, '00:05:21', 2),
+(24, '00:08:21', 3),
+(21, '00:18:21', 4),
+(18, '00:02:21', 5),
 (15, '00:09:21', 6),
 (12, '00:18:21', 7),
 (9, '00:12:21', 8),
@@ -65,8 +69,19 @@ nome VARCHAR(100)
 );
 
 SELECT * FROM tutorial;
+
+
 INSERT INTO tutorial(nome) VALUES
-('Como construir uma base no Dayz');
+('Como começar do zero no mapa chernarus'),
+('11 Dicas para iniciantes'),
+('40+ Dicas para iniciantes'),
+('Como fazer fogueira e cozinhar de todas as formas'),
+('Pra que serve os remédios'),
+('Como caçar animais e estratégias de caça'),
+('Melhores lugares pra fazer base'),
+('Como construir uma Base no DayZ 2025'),
+('Rota muito boa de loot militar'),
+('Como Guardar seus itens!');
 
 
 CREATE TABLE acesso(
@@ -82,8 +97,8 @@ PRIMARY KEY(idAcesso, fkUsuario, fkTutorial)
 
 SELECT * FROM acesso;
 
-INSERT INTO acesso(fkUsuario,fkTutorial,progresso) VALUES
-(1, 1, 85);
+SELECT progresso FROM acesso WHERE fkUsuario = 1;
+
 
 SELECT u.nome, t.nome, a.dtUltimoAcesso FROM acesso AS a
 JOIN usuario AS u ON u.idUsuario = a.fkUsuario
@@ -113,7 +128,7 @@ FROM quiz
 WHERE fkUsuario = 1
 ) AS tempo ON tempo.fkUsuario = q.fkUsuario
 WHERE q.fkUsuario = 1 AND q.duracao = ( SELECT MIN(duracao) 
-FROM quiz 
+FROM quiz
 WHERE fkUsuario = 1 ) LIMIT 1;
 
 
@@ -122,4 +137,7 @@ SELECT fkUsuario, dtTentativa, pontos FROM quiz WHERE fkUsuario = 1 ORDER BY dtT
 
 -- dados do gráficos 2
 SELECT dtTentativa, duracao FROM quiz WHERE fkUsuario = 1;
+
+-- dados do gráficos 3
+SELECT armas,acessorios, animais FROM quiz WHERE fkUsuario = 1 ORDER BY idQuiz DESC LIMIT 1;
 

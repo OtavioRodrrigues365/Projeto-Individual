@@ -129,6 +129,24 @@ ul {
     display: flex;
   }
 
+#perfil{
+    position: absolute;
+    left: 93%;
+}
+
+#sessao{
+    position: absolute;
+    left: 90%;
+}
+#sessao1{
+    position: absolute;
+    left: 93%;
+}
+#sessao2{
+    position: absolute;
+    left: 93.7%;
+}
+
 
 /*BANNER - Pagina-1*/
 .banner {

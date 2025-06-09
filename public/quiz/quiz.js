@@ -1,5 +1,3 @@
- 
-
     var segundos = 0;
     var minutos = 0;
     var contador;
@@ -8,13 +6,88 @@
     function contar(){
         segundos ++;
         if(segundos == 60){
-            segundos = 0
+            segundos = 0;
             minutos++;
         }
         duracao = `00:${String(minutos).padStart(2, 0)}:${String(segundos).padStart(2, 0)}`;
         timer.innerHTML = duracao;
     }
+
+    function fazerListaAleatoria(perguntas){
+        let animais = [];
+        let acessorios = [];
+        let armas = [];
+        for(let i = 0; i < perguntas.length;i++){
+            let perguntaAtual = perguntas[i];
+            if(perguntaAtual.categoria == `Animais`){
+                animais.push(perguntaAtual);
+            }else if(perguntaAtual.categoria == `Acessórios`){
+                acessorios.push(perguntaAtual);
+            }else{
+                armas.push(perguntaAtual);
+            }
+        }
+
+    function preencherLista(lista, quantidade){
+        let listaQualquer = [];
+        let usados = [];
+        while (listaQualquer.length < quantidade && listaQualquer.length < lista.length) {
+            let indice = Math.floor(Math.random() * lista.length);
+
+            if (usados.indexOf(indice) == -1) {
+
+                listaQualquer.push(lista[indice]);
+                usados.push(indice);
+            }
+        }
+        return listaQualquer;
+        }
+
+        let listaFinal = [];
+        let listaAnimais = preencherLista(animais, 3);
+        let listaAcessorios = preencherLista(acessorios, 3);
+        let listaArmas = preencherLista(armas, 3);
+
+        for(let i = 0;i < listaAnimais.length; i++){
+            listaFinal.push(listaAnimais[i]);
+        }
+        for(let i = 0;i < listaAcessorios.length; i++){
+            listaFinal.push(listaAcessorios[i]);
+        }
+        for(let i = 0;i < listaArmas.length; i++){
+            listaFinal.push(listaArmas[i]);
+        }
+        console.log(listaFinal)
+
+        let categoriasExtras = ["Animais", "Acessórios", "Armas"];
+        let categoriaRandom = categoriasExtras[Math.floor(Math.random() * categoriasExtras.length)];
+
+        if (categoriaRandom === "Animais") {
+        let ultima = preencherLista(animais, 4);
+        if (ultima.length === 4) {
+            listaFinal.push(ultima[3]);
+        }
+        } else if (categoriaRandom === "Acessórios") {
+        let ultima = preencherLista(acessorios, 4);
+        if (ultima.length === 4) {
+            listaFinal.push(ultima[3]);
+        }
+        } else if (categoriaRandom === "Armas") {
+        let ultima = preencherLista(armas, 4);
+        if (ultima.length === 4) {
+            listaFinal.push(ultima[3]);
+        }
+    }
+    return listaFinal;
+    }
     
+    const listaAleatoria = fazerListaAleatoria(listaDeQuestoes);
+
+
+    function exibirAlerta(texto){
+        modal.innerHTML = `<span id="textoExibir">${texto}</span>`;
+        document.getElementById("modal").style.display = `flex`;
+    }
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
@@ -22,21 +95,24 @@
     let tentativaIncorreta = 0
     let certas = 0
     let erradas = 0
-    let quantidadeDeQuestoes = 10
+    let quantidadeDeQuestoes = listaAleatoria.length
+    var pontuacaoAnimais = 0;
+    var pontuacaoAcessorios = 0;
+    var pontuacaoArmas = 0;
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
-        document.getElementById('jogo').style.display = "none"
+        document.getElementById('jogo1').style.display = "none"
     }
 
     function iniciarQuiz() {
         contador = setInterval(contar, 1000);
         document.getElementById('pontuacao').style.display = "none"
-        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('jogo1').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
         
-        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+        // document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
         
         preencherHTMLcomQuestaoAtual(0)
         
@@ -47,11 +123,11 @@
     
     function preencherHTMLcomQuestaoAtual(index) {
         habilitarAlternativas(true)
-        const questaoAtual = listaDeQuestoes[index]
+        const questaoAtual = listaAleatoria[index];
         numeroDaQuestaoAtual = index
         console.log("questaoAtual")
         console.log(questaoAtual)
-        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        // document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
         document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
         document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
@@ -71,7 +147,8 @@
         }
         
         if (!hasChecked) {
-            alert("Não há alternativas escolhidas. Escolha uma opção.")
+            exibirAlerta("Não há alternativas escolhidas. Escolha uma opção.")
+            // alert()
         } else {
             btnSubmeter.disabled = true
             
@@ -80,6 +157,9 @@
             
             checarResposta()
         }
+        setTimeout(() => {
+            document.getElementById("modal").style.display = `none`;
+          }, "2000");
         avancar();
     }
     
@@ -101,7 +181,7 @@
         if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            alert("Atenção... a próxima é a ultima questão!")
+            exibirAlerta("Atenção... a próxima é a ultima questão!")
             btnSubmeter.innerHTML = `Finalizar Quiz`;
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
@@ -116,7 +196,7 @@
     }
     
     function checarResposta() {
-        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const questaoAtual = listaAleatoria[numeroDaQuestaoAtual] // questão atual 
         const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
         
         const options = document.getElementsByName("option"); // recupera alternativas no html
@@ -134,6 +214,13 @@
         options.forEach((option) => {
             if (option.checked === true && option.value === respostaQuestaoAtual) {
                 // document.getElementById(alternativaCorreta).classList.add("text-success-with-bg") ocultado para não mostrar resposta
+                if(questaoAtual.categoria == "Animais"){
+                    pontuacaoAnimais++;
+                }else if(questaoAtual.categoria == "Armas"){ 
+                    pontuacaoArmas++;
+                }else{
+                    pontuacaoAcessorios++;
+                }
                 pontuacaoFinal++
                 certas++
                 document.getElementById("spanCertas").innerHTML = certas
@@ -202,12 +289,17 @@
         var fkUsuarioVar = sessionStorage.getItem("ID_USUARIO");
         var duracaoVar = duracao;
         var pontosVar = pontuacaoFinal*3;
-        console.log(fkUsuarioVar,duracaoVar,pontosVar);
+        var armasVar = pontuacaoArmas;
+        var animaisVar = pontuacaoAnimais;
+        var acessoriosVar = pontuacaoAcessorios;
 
-    if (pontosVar == "" || duracaoVar == "" || fkUsuarioVar == ""){
-      alert("Por favor verifique os campos para guardar no banco");
+    if (pontosVar == "" || duracaoVar == "" || fkUsuarioVar == "" || armasVar == "" || animaisVar == ""   || acessoriosVar == ""){
+      exibirAlerta("Por favor verifique os campos para guardar no banco");
     }
-    
+    console.log(pontuacaoAnimais,
+        pontuacaoAcessorios,
+        pontuacaoArmas)
+
     fetch("/quiz/guardarQuiz", {
       method: "POST",
       headers: {
@@ -216,17 +308,19 @@
       body: JSON.stringify({
         pontosServer: pontosVar,
         duracaoServer: duracaoVar,
-        fkUsuarioServer: fkUsuarioVar
+        fkUsuarioServer: fkUsuarioVar,
+        armasServer: armasVar,
+        animaisServer: animaisVar,
+        acessoriosServer: acessoriosVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          alert("Deu certo")
           setTimeout(() => {
-            window.location = "../index.html";
-          }, "2000");
+            window.location = "../dashboard/dashboard.html";
+          }, "5000");
 
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";

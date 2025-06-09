@@ -30,7 +30,7 @@ body {
 }
 
 .card-cadastro .campo input::placeholder{
-    color: black;
+    color: grey;
 }
 
 .card-cadastro h2{
@@ -56,7 +56,7 @@ justify-content: flex-end;
   width: 230px;
   position: fixed;
   border-radius: 4px;
-  border: red 3px solid;
+  border: var(--verde-fundo) 3px solid;
   padding: 10px;
   margin-right: 10%;
 }

@@ -21,7 +21,7 @@
     rel="stylesheet">
 </head>
 
-<body onload="listar()">
+<body >
 
   <div class="login">
     <div class="container">
@@ -39,10 +39,12 @@
           <div class="campo">
             <span>E-mail:</span>
             <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+            <span id="conterArroba" style="display: none;color: red;">Deve conter @ e .com</span>
           </div>
           <div class="campo">
             <span>Senha:</span>
             <input id="senha_input" type="password" placeholder="******" />
+            <span id="conterDigitos" style="display: none;color: red;">Deve conter 8 dígitos ou mais</span>
           </div>
           <div class="campo">
             <span>Confirmação da Senha:</span>
@@ -66,8 +68,8 @@
 </body>
 </html>
 <script>
-
   // Array para armazenar empresas cadastradas para validação de código de ativação 
+  
   
 
   function cadastrar() {
@@ -80,24 +82,50 @@
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
     // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
-    ) {
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == ""){
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "Por favor, preencha todos os campos obrigatórios.";
-
+      
       finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
+    var incluiArroba = false
+    for(let i = 0; i < emailVar.length; i++){
+      var caractereAtual = emailVar[i];
+      if(caractereAtual == "@"){
+        incluiArroba = true;
+      }
+    }
+    if(incluiArroba && emailVar.endsWith('.com')){
+      setTimeout(() => {
+      document.getElementById("conterArroba").style.display = `none`;
+          }, "1000");
+    }else{
+      document.getElementById("conterArroba").style.display = `flex`;
+      return false
+    }
+  
+
+    if(senhaVar == confirmacaoSenhaVar){
+      if(senhaVar.length >= 8){
+        setTimeout(() => {
+      document.getElementById("conterDigitos").style.display = `none`;
+          }, "1000");
+      }else{
+        document.getElementById("conterDigitos").style.display = `flex`;
+        return false
+      }
+    }else{
+      
+      return false
+    }
+
     
+  
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -126,7 +154,6 @@
             window.location = "login.html";
           }, "2000");
 
-          limparFormulario();
           finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
@@ -134,7 +161,7 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        alert("Já existe um usuário com esse email");
+        alert(`Já existe um usuário com este email`);
         finalizarAguardar();
       });
 

@@ -1,5 +1,5 @@
 // sessão
-function validarSessao() {
+function validarSessao(resposta) {
 var email2 = localStorage.EMAIL_USUARIO;
 var nome2 = localStorage.NOME_USUARIO;
 var email = sessionStorage.EMAIL_USUARIO;
@@ -14,12 +14,13 @@ if (email2 != null && nome2 != null || email != null && nome != null) {
         document.getElementById("sessao").style.display = 'none';
         document.getElementById("sessao1").style.display = 'none';
         document.getElementById("sessao2").style.display = 'none';
-        var imagem = `./assets/imgs/home.png`;
-        teste.innerHTML = `<li><div class="perfil"><div class="img-perfil"><img src="${imagem}"/></div><a href="dashboard/dashboard.html">${nome}</a></div></li>`;
+        var imagem = `${resposta}/imgs/home.png`;
+        teste.innerHTML = `<li><div class="perfil"><div class="img-perfil"><img src="${imagem}"/></div><a href="/dashboard/dashboard.html">${nome}</a></div></li>`;
     } else {
         window.location = "../login.html";
     }
 }
+
 
 function validarIndex() {
 var email2 = localStorage.EMAIL_USUARIO;
@@ -37,7 +38,10 @@ if (email2 != null && nome2 != null || email != null && nome != null) {
         document.getElementById("sessao1").style.display = 'none';
         document.getElementById("sessao2").style.display = 'none';
         var imagem = `./assets/imgs/home.png`;
-        teste.innerHTML = `<li><div class="perfil"><div class="img-perfil"><img src="${imagem}"/></div><a href="dashboard/dashboard.html">${nome}</a></div></li>`;
+        perfil.innerHTML = `<li><div class="perfil"><div class="img-perfil"><img src="${imagem}"/></div><a href="/dashboard/dashboard.html">${nome}</a></div></li>`;
+    }else{
+        document.getElementById("quiz").style.display = 'none';
+        document.getElementById("jogo").style.display = 'none';
     }
 }
 

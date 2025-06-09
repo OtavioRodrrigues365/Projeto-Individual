@@ -4,8 +4,6 @@ function cadastrarProgresso(fkUsuario, fkTutorial, progresso) {
     var instrucaoSql = `SELECT * FROM acesso WHERE fkUsuario = ${fkUsuario} AND fkTutorial = ${fkTutorial};`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql).then(function(resposta){
-
-        console.log(resposta[0].progresso);
         var instrucaoSql2 = ``;
         if(resposta.length > 0){
             if(resposta[0].progresso < progresso){
@@ -20,9 +18,16 @@ function cadastrarProgresso(fkUsuario, fkTutorial, progresso) {
     console.error(`Erro na obtenção dos dados p/ progresso: ${error.message}`);
   });
     });
+};
+
+function buscarProgresso(idUsuario) {
+    var instrucaoSql = `SELECT progresso FROM acesso WHERE fkUsuario = ${idUsuario};`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 
 module.exports = {
     cadastrarProgresso,
+    buscarProgresso
 };

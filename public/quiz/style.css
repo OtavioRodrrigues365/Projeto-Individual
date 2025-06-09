@@ -19,8 +19,7 @@
 }
 
 body {
-    color: var(--new-black);
-    background-color: var(--new-white);
+    background-color: var(--secondary-brand-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -39,11 +38,11 @@ button {
 }
 
 .border-primary {
-    border: 3px solid var(--primary-brand-color);
+    border: 3px solid var(--success);
 }
 
 .border-secondary {
-    border: 3px solid var(--secondary-brand-color);
+    border: 3px solid var(--success);
 }
 
 .padding-8 {
@@ -86,6 +85,16 @@ button {
     box-shadow: 3px 5px 11px 0px #00000054;
 }
 
+#pontuacaoFinalJogo{
+    color: white;
+}
+
+#pontuacaoDuranteJogo{
+    color: white;
+}
+#container-timer{
+    color: white;
+}
 
 #pontuacaoEJogo{
     display: flex;
@@ -96,13 +105,19 @@ button {
     height: 95vh;
 }
 
-#jogo{
+
+#spanQuestaoExibida{
+    font-size: 25px;
+}
+
+#jogo1{
     border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.295);
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.295);
     width: 30%;
     height: 50vh;
     display: flex;
     justify-content: center;
+    background-color: var(--new-white);
 }
 
 #botoes{
@@ -135,7 +150,30 @@ button {
     align-items: center;
 }
 
+#opcoes span:hover{
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    color: white;
+    height: 60%;
+    display: flex;
+    background-color: #095c36;
+    align-items: center;
+}
+
 #opcoes label{
     width: 100%;
+}
+
+.modal{
+    width: 30%;
+    height: 10%;
+    border: 1px var(--success) solid;
+    position: absolute;
+    left: 35%;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 

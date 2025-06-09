@@ -1,6 +1,6 @@
 
 var listaNomes = ``;
-var idUsuario = sessionStorage.ID_USUARIO;
+var idUsuario = sessionStorage.ID_USUARIO || localStorage.ID_USUARIO;
 
 // Função de pegar ranking
 fetch(`/quiz/ranking`, { cache: 'no-store' }).then(function (response) {
@@ -77,6 +77,27 @@ fetch(`/quiz/melhorTempo/${idUsuario}`, { cache: 'no-store' }).then(function (re
     console.error(`Erro na obtenção dos dados p/ indicadores: ${error.message}`);
   });
 
+//Função para pegar categorias do ultimo quiz
+  fetch(`/quiz/taxaCategoria/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+    if (response.status === 204) {
+      alert('Nenhuma categoria encontrada. Faça um quiz!');
+      return;
+    }
+    if (response.ok) {
+      response.json().then(function (resposta) {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+  
+        exibirCategorias(resposta)
+      });
+    } else {
+      console.error('Nenhum dado encontrado ou erro na API');
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ indicadores: ${error.message}`);
+    });
+  
+
 
 
 // KPI´S
@@ -99,7 +120,7 @@ function exibirNomes(lista) {
     <th>Pontos</th>
     <th>Tempo</th>
     </tr>`;
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < lista.length; i++) {
     dados += `<tr>
       <th>${lista[i].Nome}</th>
       <th>${lista[i].Pontos}</th>
@@ -133,8 +154,6 @@ function exibirTentativas(dados) {
   }
 
 
-  console.log(lista_tentativa)
-
   const grafico1 = document.getElementById('grafico1');
 
   new Chart(grafico1, {
@@ -143,8 +162,8 @@ function exibirTentativas(dados) {
       labels: lista_tentativa.reverse(),
       datasets: [{
         label: 'Pontos',
-        data: lista_pontos,
-        borderWidth: 1
+        data: lista_pontos.reverse(),
+        borderWidth: 1,
       }]
     },
     options: {
@@ -152,14 +171,38 @@ function exibirTentativas(dados) {
       maintainAspectRatio: true,
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: false,
+          ticks: {
+            color: 'white',
+            font: {
+              size: 14,
+              weight: 'bold',
+              family: 'Arial'
+            }
+          }
+        },
+        x:{
+            ticks: {
+              color: 'white',
+              font: {
+                size: 14,
+                weight: 'bold',
+                family: 'Arial'
+              }
+            }
+        }
+      },
+      plugins:{
+      legend: {
+        labels: {
+          color: 'white'
         }
       }
     }
+    },
   });
 }
 
-console.log(lista_pontos);
 
 // graficos
 const lista_tempo = [];
@@ -174,6 +217,7 @@ function exibirMelhorTempo(dados){
       var total = (Number(tempoSeparado[1])*60)+Number(tempoSeparado[2]);
 
       lista_tempo.push(total);
+
       var dtFormatada =  dados[i].dtTentativa.split("T");
       dtFormatada = dtFormatada[0].split("-");
       dtFormatada = `${dtFormatada[2]}/${dtFormatada[1]}/${dtFormatada[0]}`
@@ -201,7 +245,7 @@ new Chart(grafico3, {
     datasets: [{
       label: 'Tempo em Segundos',
       data: lista_tempo.reverse(),
-      borderWidth: 1
+      borderWidth: 1,
     }]
   },
   options: {
@@ -209,25 +253,54 @@ new Chart(grafico3, {
     maintainAspectRatio: false,
     scales: {
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        ticks: {
+          font:{
+            size: 15
+          },
+          color: 'white',
+        }
+      },
+      x:{
+        ticks: {
+          font:{
+            size: 15
+          },
+          color: 'white',
+        }
+      }
+    },
+    plugins:{
+      legend: {
+        labels: {
+          color: 'white'
+        }
       }
     }
   }
 });
 
-
-  console.log(lista_tempo)
 }
+
+
+
+function exibirCategorias(dados){
+
+var acessoriosPorcentagem = dados[0].acessorios / 10 * 100;
+var armasPorcentagem = dados[0].armas / 10 * 100;
+var animaisPorcentagem = dados[0].animais / 10 * 100;
 const grafico2 = document.getElementById('grafico2');
 
 new Chart(grafico2, {
   type: 'doughnut',
   data: {
     labels: ['Acessórios', 'Armas', 'Animais'],
+    backgroundColor: '#FFB1C1',
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3],
-      borderWidth: 1
+      label: 'taxa de acertos',
+      data: [acessoriosPorcentagem, armasPorcentagem, animaisPorcentagem],
+      borderWidth: 1,
+      
     }]
   },
   options: {
@@ -235,10 +308,36 @@ new Chart(grafico2, {
     maintainAspectRatio: false,
     scales: {
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+          ticks: {
+            color: 'white',
+            font:{
+              size: 17
+            },
+          },
+      }
+    },
+    plugins: {
+      datalabels: {
+        color: '#fff',
+        font: {
+          weight: 'bold',
+          size: 16
+        },
+        formatter: function(value, context) {
+          return value+"%";
+        }
+      },
+      legend: {
+        labels: {
+          color: 'white',
+          
+        }
+        
       }
     }
-  }
+    
+  },
+  plugins: [ChartDataLabels]
 });
-
-
+}

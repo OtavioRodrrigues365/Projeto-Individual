@@ -8,5 +8,8 @@ router.post("/cadastrarProgresso", function (req, res) {
     tutorialController.cadastrarProgresso(req, res);
 })
 
+router.get("/buscarProgresso/:idUsuario", function (req, res) {
+    tutorialController.buscarProgresso(req, res);
+})
 
 module.exports = router;

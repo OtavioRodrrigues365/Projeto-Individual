@@ -10,13 +10,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
     <title>ZonaDayZ - Quiz</title>
 </head>
 
 
 <!-- onload="onloadEsconder()"-->
- <body onload="onloadEsconder()">
-     
+ <body onload="onloadEsconder();validarSessao('../assets')">
+    <div class="header" id="header">
+        <div class="container">
+          <img class="fundo" src="../assets/imgs/LogoFinal.png"/>
+          <ul class="navbar">
+    
+            <li class="agora">
+              <a href="../index.html#1">Inicial</a>
+            </li>
+            <li>
+              <a href="../index.html#2">Sobre</a>
+            </li>
+            <li id="jogo">
+              <a href="../jogo.html">Mini DayZ</a>
+            </li>
+            <li id="quiz">
+              <a href="#">Quiz</a>
+            </li>
+              <li id="sessao">
+                <a href="login.html">Login</a>
+              </li>
+              <li id="sessao1">|</li>
+              <li id="sessao2">
+                <a href="cadastro.html">Cadastro</a>
+              </li>
+            <div id="teste"></div>
+          </ul>
+        </div>
+      </div>
+      <div class="modal" id="modal" style="display: none;">
+        
+      </div>
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">Iniciar QuizZ</button>
         <div id="container-timer">
@@ -35,12 +66,12 @@
             </div>
         </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+        <div id="jogo1" class="width-fit-content flex-colunar border-secondary">
 
-            <div id="infoQuestao" class="padding-8">
+            <!-- <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
                     questões.</span>
-            </div>
+            </div> -->
 
             <div id="perguntaDaQuestaoAtual" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>

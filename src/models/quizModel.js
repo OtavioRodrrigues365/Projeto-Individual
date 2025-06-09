@@ -1,13 +1,13 @@
 var database = require("../database/config")
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function guardarQuiz(pontos, duracao, fkUsuario) {
+function guardarQuiz(pontos, duracao, fkUsuario, armas, animais, acessorios) {
     console.log("ACESSEI O QUIZ MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function guardarQuiz():", pontos, duracao, fkUsuario);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO quiz (pontos, duracao, fkUsuario) VALUES ('${pontos}', '${duracao}', '${fkUsuario}');
+        INSERT INTO quiz (pontos, duracao, fkUsuario, armas, animais, acessorios) VALUES ('${pontos}', '${duracao}', '${fkUsuario}', '${armas}', '${animais}', '${acessorios}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -40,11 +40,18 @@ function buscarMelhorTempo(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarCategorias(idUsuario) {
+    var instrucaoSql = `SELECT armas, acessorios, animais FROM quiz WHERE fkUsuario = ${idUsuario} ORDER BY idQuiz DESC LIMIT 1;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     guardarQuiz,
     buscarRanking,
     buscarIndicadores,
     buscarTentativas,
-    buscarMelhorTempo
+    buscarMelhorTempo,
+    buscarCategorias
 };

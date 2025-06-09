@@ -6,13 +6,14 @@
     <link rel="icon" href="assets/icon/favicon1.png">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/tutoriais.css">
+    <script src="./js/sessao.js"></script>
     <title>ZonaDayZ | Tutoriais</title>
 </head>
-<body onload="exibirVideos()">
+<body onload="validarSessao('./assets')">
     
-     <div class="header" id="header">
+  <div class="header" id="header">
     <div class="container">
-      <img class="fundo" src="./assets/imgs/LogoFinal.png" />
+      <img class="fundo" src="./assets/imgs/LogoFinal.png"/>
       <ul class="navbar">
 
         <li class="agora">
@@ -22,34 +23,35 @@
           <a href="index.html#2">Sobre</a>
         </li>
         <li>
-          <a href="jogo.html">Mini DayZ</a>
+          <a href="./jogo/jogo.html">Mini DayZ</a>
         </li>
         <li>
-          <a href="quiz/quiz.html">Quiz</a>
+          <a href="./quiz/quiz.html">Quiz</a>
         </li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="cadastro.html">Cadastro</a>
-        </li>
+          <li id="sessao">
+            <a href="login.html">Login</a>
+          </li>
+          <li id="sessao1">|</li>
+          <li id="sessao2">
+            <a href="cadastro.html">Cadastro</a>
+          </li>
+        <div id="teste"></div>
       </ul>
-      
     </div>
   </div>
-  <div class="container-trilha" id="trilha">
-    <div onclick="rodar()" class="checkpoint1" id="check1">
-      <span>1</span>
+  <div class="container-trilha" >
+    <span class="titulo">Tutoriais</span>
+    <div id="trilha">
     </div>
-  </div>
-  <div class="videos" id="video1">
+    <div class="videos" id="video1">
     
+    </div>
   </div>
-  <div class="circle">
+  
+  <!-- <div class="circle">
     <div class="barra">
     </div>
-  </div>
+  </div> -->
 </body>
 </html>
 <script src="./script/tutoriais.js"></script>

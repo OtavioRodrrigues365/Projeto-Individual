@@ -18,7 +18,7 @@
     rel="stylesheet">
 </head>
 
-<body onload="validarIndex()">
+<body>
 
   <div class="banner" id="1">
     <div class="container">
@@ -46,10 +46,10 @@
         <li>
           <a href="#2">Sobre</a>
         </li>
-        <li>
+        <li id="jogo">
           <a href="./jogo/jogo.html">Mini DayZ</a>
         </li>
-        <li>
+        <li id="quiz">
           <a href="./quiz/quiz.html">Quiz</a>
         </li>
           <li id="sessao">
@@ -59,7 +59,7 @@
           <li id="sessao2">
             <a href="cadastro.html">Cadastro</a>
           </li>
-        <div id="teste"></div>
+        <div id="perfil"></div>
       </ul>
 
     </div>
@@ -180,7 +180,7 @@
         <div class="card">
           <span>Rifles de Atirador e Rifles Semiautomáticos</span>
           <div class="card-itens">
-            <img src="./assets/imgs/armas/RiflesAtirador/svd.png" alt="">
+            <img src="./assets/imgs/cardSemi.png" alt="">
             <p>Seja no combate de média distância ou na precisão de um disparo certeiro, essas armas garantem vantagem em qualquer situação. Escolha seu estilo e sobreviva com estratégia no mundo brutal de DayZ.</p>
             <button value="Rifles de Atirador.Rifles semiautomáticos" onclick="enviar(this)">Saiba Mais</button>
           </div>
@@ -196,5 +196,7 @@
 </body>
 <script src="./script/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    
+    <script>window.addEventListener("DOMContentLoaded", function () {
+      validarIndex();
+    });</script>
 </html>
